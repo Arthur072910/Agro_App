@@ -17,5 +17,6 @@ namespace Agro_App.Model
         public int IdCargo { get; set; }
         public bool Estado { get; set; }
         public DateTime FechaRegistro { get; set; }
+        public string Documento { get; set; }
     }
 }
