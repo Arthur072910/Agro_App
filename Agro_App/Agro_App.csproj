@@ -9,14 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DataAccess\" />
-    <Folder Include="Model\" />
-    <Folder Include="Controllers\" />
     <Folder Include="utilities\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.6.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Agro_App.Controllers;
+using Agro_App.Model;
+
 namespace Agro_App.Views
 {
     public partial class Login : Form
@@ -24,6 +27,9 @@ namespace Agro_App.Views
 
         private void btningresar_Click(object sender, EventArgs e)
         {
+
+            Empleados oempleados = new EmpleadosControllers().Listar().Where(u => u.Documento == txtusuario.Text && u.Clave == txtcontraseña.Text).FirstOrDefault();
+
             Inicio form = new Inicio();
             form.Show();
             this.Hide();
