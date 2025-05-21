@@ -12,6 +12,11 @@ namespace Agro_App
 
         }
 
+        private void menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
 
         //Buenos dias señores fnsjfno;isufbwf
 

@@ -40,7 +40,10 @@
             menutitulo = new MenuStrip();
             label1 = new Label();
             contenedor = new Panel();
+            label3 = new Label();
+            label2 = new Label();
             menu.SuspendLayout();
+            contenedor.SuspendLayout();
             SuspendLayout();
             // 
             // menu
@@ -48,13 +51,14 @@
             menu.BackColor = Color.White;
             menu.ImageScalingSize = new Size(20, 20);
             menu.Items.AddRange(new ToolStripItem[] { menuusuarios, menumantenedor, menuventas, menucompras, menuclientes, menuproveedores, menureportes, menuacercade });
-            menu.Location = new Point(0, 194);
+            menu.Location = new Point(0, 116);
             menu.Name = "menu";
-            menu.Padding = new Padding(8, 2, 0, 2);
+            menu.Padding = new Padding(6, 1, 0, 1);
             menu.RightToLeft = RightToLeft.No;
-            menu.Size = new Size(2378, 183);
+            menu.Size = new Size(1370, 171);
             menu.TabIndex = 0;
             menu.Text = "menuStrip1";
+            menu.ItemClicked += menu_ItemClicked;
             // 
             // menuusuarios
             // 
@@ -64,7 +68,7 @@
             menuusuarios.IconSize = 150;
             menuusuarios.ImageScaling = ToolStripItemImageScaling.None;
             menuusuarios.Name = "menuusuarios";
-            menuusuarios.Size = new Size(166, 179);
+            menuusuarios.Size = new Size(162, 169);
             menuusuarios.Text = "Usuarios";
             menuusuarios.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -76,7 +80,7 @@
             menumantenedor.IconSize = 150;
             menumantenedor.ImageScaling = ToolStripItemImageScaling.None;
             menumantenedor.Name = "menumantenedor";
-            menumantenedor.Size = new Size(166, 179);
+            menumantenedor.Size = new Size(162, 169);
             menumantenedor.Text = "Mantenedor";
             menumantenedor.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -88,7 +92,7 @@
             menuventas.IconSize = 150;
             menuventas.ImageScaling = ToolStripItemImageScaling.None;
             menuventas.Name = "menuventas";
-            menuventas.Size = new Size(166, 179);
+            menuventas.Size = new Size(162, 169);
             menuventas.Text = "Ventas";
             menuventas.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -100,7 +104,7 @@
             menucompras.IconSize = 150;
             menucompras.ImageScaling = ToolStripItemImageScaling.None;
             menucompras.Name = "menucompras";
-            menucompras.Size = new Size(166, 179);
+            menucompras.Size = new Size(162, 169);
             menucompras.Text = "Compras";
             menucompras.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -112,7 +116,7 @@
             menuclientes.IconSize = 150;
             menuclientes.ImageScaling = ToolStripItemImageScaling.None;
             menuclientes.Name = "menuclientes";
-            menuclientes.Size = new Size(166, 179);
+            menuclientes.Size = new Size(162, 169);
             menuclientes.Text = "Clientes";
             menuclientes.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -124,7 +128,7 @@
             menuproveedores.IconSize = 150;
             menuproveedores.ImageScaling = ToolStripItemImageScaling.None;
             menuproveedores.Name = "menuproveedores";
-            menuproveedores.Size = new Size(166, 179);
+            menuproveedores.Size = new Size(162, 169);
             menuproveedores.Text = "Proveedores";
             menuproveedores.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -136,7 +140,7 @@
             menureportes.IconSize = 150;
             menureportes.ImageScaling = ToolStripItemImageScaling.None;
             menureportes.Name = "menureportes";
-            menureportes.Size = new Size(166, 179);
+            menureportes.Size = new Size(162, 169);
             menureportes.Text = "Reportes";
             menureportes.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -148,7 +152,7 @@
             menuacercade.IconSize = 150;
             menuacercade.ImageScaling = ToolStripItemImageScaling.None;
             menuacercade.Name = "menuacercade";
-            menuacercade.Size = new Size(166, 179);
+            menuacercade.Size = new Size(162, 169);
             menuacercade.Text = "Acerca de ";
             menuacercade.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -159,9 +163,9 @@
             menutitulo.ImageScalingSize = new Size(20, 20);
             menutitulo.Location = new Point(0, 0);
             menutitulo.Name = "menutitulo";
-            menutitulo.Padding = new Padding(8, 2, 0, 2);
+            menutitulo.Padding = new Padding(6, 1, 0, 1);
             menutitulo.RightToLeft = RightToLeft.Yes;
-            menutitulo.Size = new Size(2378, 194);
+            menutitulo.Size = new Size(1370, 116);
             menutitulo.TabIndex = 1;
             menutitulo.Text = "menuStrip2";
             // 
@@ -171,40 +175,68 @@
             label1.BackColor = Color.ForestGreen;
             label1.Font = new Font("Arial Rounded MT Bold", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(56, 75);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(39, 45);
             label1.Name = "label1";
-            label1.Size = new Size(642, 60);
+            label1.Size = new Size(431, 40);
             label1.TabIndex = 2;
             label1.Text = "Sistema de Agroservicio";
             label1.Click += label1_Click;
             // 
             // contenedor
             // 
+            contenedor.Controls.Add(label3);
+            contenedor.Controls.Add(label2);
             contenedor.Dock = DockStyle.Fill;
-            contenedor.Location = new Point(0, 377);
-            contenedor.Margin = new Padding(4, 4, 4, 4);
+            contenedor.Location = new Point(0, 287);
+            contenedor.Margin = new Padding(3, 2, 3, 2);
             contenedor.Name = "contenedor";
-            contenedor.Size = new Size(2378, 914);
+            contenedor.Size = new Size(1370, 162);
             contenedor.TabIndex = 3;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.ForestGreen;
+            label3.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(968, 69);
+            label3.Name = "label3";
+            label3.Size = new Size(95, 18);
+            label3.TabIndex = 4;
+            label3.Text = "lblusuario: ";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.ForestGreen;
+            label2.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(968, 33);
+            label2.Name = "label2";
+            label2.Size = new Size(79, 18);
+            label2.TabIndex = 3;
+            label2.Text = "Usuario: ";
             // 
             // Inicio
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2378, 1291);
+            AutoSize = true;
+            ClientSize = new Size(1370, 449);
             Controls.Add(contenedor);
             Controls.Add(label1);
             Controls.Add(menu);
             Controls.Add(menutitulo);
             MainMenuStrip = menu;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Inicio";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
             menu.ResumeLayout(false);
             menu.PerformLayout();
+            contenedor.ResumeLayout(false);
+            contenedor.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -223,5 +255,7 @@
         private FontAwesome.Sharp.IconMenuItem menureportes;
         private FontAwesome.Sharp.IconMenuItem menuacercade;
         private Panel contenedor;
+        private Label label3;
+        private Label label2;
     }
 }
