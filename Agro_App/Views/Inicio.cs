@@ -1,3 +1,6 @@
+using Agro_App.Views;
+using FontAwesome.Sharp;
+
 namespace Agro_App
 {
     public partial class Inicio : Form
@@ -17,9 +20,27 @@ namespace Agro_App
 
         }
 
+        private void menuusuarios_Click(object sender, EventArgs e)
+        {
+            FrmEmpleados empleadosForm = new FrmEmpleados();
+            empleadosForm.Show(); // Muestra el formulario frmEmpleados
 
-        //Buenos dias señores fnsjfno;isufbwf
+            this.Hide(); // Oculta el formulario actual (Inicio), si no quieres que siga visible
+        }
 
+        private void menumantenedor_Click(object sender, EventArgs e)
+        {
+            ConexionDB connection = new ConexionDB();
+            var conn = connection.GetConnection();
 
+            if (conn != null && conn.State == System.Data.ConnectionState.Open)
+            {
+                MessageBox.Show("Conexión exitosa a la base de datos.");
+            }
+            else
+            {
+                MessageBox.Show("Error al conectar a la base de datos.");
+            }
+        }
     }
 }

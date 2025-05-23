@@ -27,15 +27,14 @@ namespace Agro_App.Views
 
         private void btningresar_Click(object sender, EventArgs e)
         {
+            // List<Empleados> Test = new EmpleadosControllers().Listar();
 
-            Empleados oempleados = new EmpleadosControllers().Listar().Where(u => u.Documento == txtusuario.Text && u.Clave == txtcontraseña.Text).FirstOrDefault();
+            // Empleados oempleados = new EmpleadosControllers().Listar().Where(u => u.Documento == txtusuario.Text && u.Clave == txtcontraseña.Text).FirstOrDefault();
 
-            Inicio form = new Inicio();
-            form.Show();
+            Inicio inicio = new Inicio();
+            inicio.FormClosed += (s, args) => this.Show(); // Cuando se cierre Inicio, volver a mostrar Login
+            inicio.Show();
             this.Hide();
-
-
-            form.FormClosing += frm_clossing;
 
         }
 

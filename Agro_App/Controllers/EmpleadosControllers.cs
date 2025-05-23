@@ -10,7 +10,7 @@ using Agro_App.Model;
 
 namespace Agro_App.Controllers
 {
-   public class EmpleadosControllers
+    public class EmpleadosControllers
     {
         private CD_Usuarios objcd_Empleados = new CD_Usuarios();
 

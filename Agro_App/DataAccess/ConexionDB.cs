@@ -8,16 +8,25 @@ public class ConexionDB
     private readonly string connectionString =
         ConfigurationManager.ConnectionStrings["MiConexion"].ConnectionString;
 
-    public DataTable EjecutarConsulta(string consulta)
+    public SqlConnection GetConnection()
     {
-        DataTable tabla = new DataTable();
-        using (SqlConnection conexion = new SqlConnection(connectionString))
+        SqlConnection connection = new SqlConnection(connectionString);
+        try
         {
-            conexion.Open();
-            SqlCommand comando = new SqlCommand(consulta, conexion);
-            SqlDataAdapter adaptador = new SqlDataAdapter(comando);
-            adaptador.Fill(tabla);
+            connection.Open();
         }
-        return tabla;
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error al abrir la conexión: " + ex.Message);
+        }
+        return connection;
+    }
+
+    public void CloseConnection(SqlConnection connection)
+    {
+        if (connection != null && connection.State == System.Data.ConnectionState.Open)
+        {
+            connection.Close();
+        }
     }
 }
