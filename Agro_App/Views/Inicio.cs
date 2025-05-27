@@ -42,5 +42,28 @@ namespace Agro_App
                 MessageBox.Show("Error al conectar a la base de datos.");
             }
         }
+
+        private void menuventas_Click(object sender, EventArgs e)
+        {
+
+
+
+        }
+
+        private void submenuverdetalleventa_Click(object sender, EventArgs e)
+        {
+            FrmDetalleVentas ventasForm = new FrmDetalleVentas();
+            ventasForm.Show();
+            this.Hide();
+
+
+        }
+
+        private void submenuregistrar_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarVenta ventasForm = new FrmRegistrarVenta();
+            ventasForm.Show();
+            this.Hide();
+        }
     }
 }

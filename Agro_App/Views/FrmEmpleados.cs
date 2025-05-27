@@ -19,12 +19,26 @@ namespace Agro_App.Views
 
         private void menucasa_Click(object sender, EventArgs e)
         {
-        
+
             Inicio inicioForm = new Inicio();
             inicioForm.Show();
             this.Close();
 
 
-         }
+        }
+
+        private void submenuverdetalleventa_Click(object sender, EventArgs e)
+        {
+
+
+
+        }
+
+        private void submenuregistrar_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarVenta ventasForm = new FrmRegistrarVenta();
+            ventasForm.Show();
+            this.Hide();
+        }
     }
 }
