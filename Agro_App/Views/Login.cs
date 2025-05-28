@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Agro_App.DataAccess;
 using Agro_App.Controllers;
 using Agro_App.Model;
 
@@ -27,23 +27,22 @@ namespace Agro_App.Views
 
         private void btningresar_Click(object sender, EventArgs e)
         {
-            // List<Empleados> Test = new EmpleadosControllers().Listar();
+            String username = txtusuario.Text.Trim();
+            String password = txtcontraseña.Text.Trim();
 
-            // Empleados oempleados = new EmpleadosControllers().Listar().Where(u => u.Documento == txtusuario.Text && u.Clave == txtcontraseña.Text).FirstOrDefault();
+            ConexionDB conexion = new ConexionDB();
+            LoginControllers controller = new LoginControllers(conexion.GetConnection().ConnectionString);
 
-            Inicio inicio = new Inicio();
-            inicio.FormClosed += (s, args) => this.Show(); // Cuando se cierre Inicio, volver a mostrar Login
-            inicio.Show();
-            this.Hide();
+            Empleados empleado = controller.IniciarSesion(username, password);
 
-        }
-
-        private void  frm_clossing(object sender, FormClosingEventArgs e)
-        {
-            txtusuario.Text = "";
-            txtcontraseña.Text = "";
-
-            this.Show();
+            if (empleado != null)
+            {
+                MessageBox.Show("Bienvenido, " + empleado.Nombre + "!");
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos.");
+            }
         }
     }
 }
