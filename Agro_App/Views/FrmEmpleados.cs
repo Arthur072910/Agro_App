@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Agro_App.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,13 +20,13 @@ namespace Agro_App.Views
 
         private void menucasa_Click(object sender, EventArgs e)
         {
-
-            Inicio inicioForm = new Inicio();
+            // Assuming "empleado" is an instance of the Empleados class that needs to be passed to Inicio
+            Empleados empleado = new Empleados(); // Create or retrieve an instance of Empleados
+            Inicio inicioForm = new Inicio(empleado); // Pass the required parameter
             inicioForm.Show();
             this.Close();
-
-
         }
+
 
         private void submenuverdetalleventa_Click(object sender, EventArgs e)
         {

@@ -29,4 +29,10 @@ public class ConexionDB
             connection.Close();
         }
     }
+
+    // Método para obtener el connection string
+    public string GetConnectionString()
+    {
+        return connectionString;
+    }
 }

@@ -1,24 +1,27 @@
 ﻿using Agro_App.DataAccess;
 using Agro_App.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Agro_App.Controllers
 {
-   public class LoginControllers
+    public class LoginControllers
     {
         private readonly UsuarioDAO usuarioDAO;
+
         public LoginControllers(string connectionString)
         {
             usuarioDAO = new UsuarioDAO(connectionString);
         }
 
-        public Empleados IniciarSesion(String username, String password)
+        public Empleados IniciarSesion(string email, string clave)
         {
-            return usuarioDAO.validarlogin(username, password);
+            // Validaciones básicas
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(clave))
+            {
+                return null;
+            }
+
+            return usuarioDAO.ValidarLogin(email, clave);
         }
     }
 }
