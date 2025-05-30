@@ -24,7 +24,6 @@ namespace Agro_App
         {
             FrmEmpleados empleadosForm = new FrmEmpleados();
             empleadosForm.Show(); // Muestra el formulario frmEmpleados
-
             this.Hide(); // Oculta el formulario actual (Inicio), si no quieres que siga visible
         }
 
@@ -63,6 +62,13 @@ namespace Agro_App
         {
             FrmRegistrarVenta ventasForm = new FrmRegistrarVenta();
             ventasForm.Show();
+            this.Hide();
+        }
+
+        private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCategoria categoriaForm = new FrmCategoria();
+            categoriaForm.Show();
             this.Hide();
         }
     }

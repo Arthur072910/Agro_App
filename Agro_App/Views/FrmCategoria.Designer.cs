@@ -43,10 +43,31 @@
             menuproveedores = new FontAwesome.Sharp.IconMenuItem();
             menureportes = new FontAwesome.Sharp.IconMenuItem();
             menuacercade = new FontAwesome.Sharp.IconMenuItem();
+            tabPage1 = new TabPage();
+            DataListadoCategorias = new DataGridView();
+            IdCategoria = new DataGridViewTextBoxColumn();
+            Nombre_Categoria = new DataGridViewTextBoxColumn();
+            Estado = new DataGridViewTextBoxColumn();
+            FechaRegistro = new DataGridViewTextBoxColumn();
+            tabControl1 = new TabControl();
+            tabPage2 = new TabPage();
+            DataMantenedorCategorias = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            NombreCategoria = new DataGridViewTextBoxColumn();
+            stado = new DataGridViewTextBoxColumn();
+            Fecha = new DataGridViewTextBoxColumn();
+            label1 = new Label();
+            txtNombre = new TextBox();
+            btnEliminar = new Button();
+            btnEditar = new Button();
+            btnAgregar = new Button();
             button1 = new Button();
-            dataGridView1 = new DataGridView();
             menu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DataListadoCategorias).BeginInit();
+            tabControl1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DataMantenedorCategorias).BeginInit();
             SuspendLayout();
             // 
             // menutitulo
@@ -112,6 +133,7 @@
             menumantenedor.Size = new Size(166, 179);
             menumantenedor.Text = "Mantenedor";
             menumantenedor.TextImageRelation = TextImageRelation.ImageAboveText;
+            menumantenedor.Click += menumantenedor_Click;
             // 
             // categoriaToolStripMenuItem
             // 
@@ -216,33 +238,189 @@
             menuacercade.Text = "Acerca de ";
             menuacercade.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(DataListadoCategorias);
+            tabPage1.Location = new Point(4, 34);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1043, 463);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Listado de Categorias";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // DataListadoCategorias
+            // 
+            DataListadoCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataListadoCategorias.Columns.AddRange(new DataGridViewColumn[] { IdCategoria, Nombre_Categoria, Estado, FechaRegistro });
+            DataListadoCategorias.Location = new Point(191, 18);
+            DataListadoCategorias.Name = "DataListadoCategorias";
+            DataListadoCategorias.RowHeadersWidth = 62;
+            DataListadoCategorias.Size = new Size(664, 410);
+            DataListadoCategorias.TabIndex = 0;
+            // 
+            // IdCategoria
+            // 
+            IdCategoria.HeaderText = "ID";
+            IdCategoria.MinimumWidth = 8;
+            IdCategoria.Name = "IdCategoria";
+            IdCategoria.Width = 50;
+            // 
+            // Nombre_Categoria
+            // 
+            Nombre_Categoria.HeaderText = "Nombre";
+            Nombre_Categoria.MinimumWidth = 8;
+            Nombre_Categoria.Name = "Nombre_Categoria";
+            Nombre_Categoria.Width = 200;
+            // 
+            // Estado
+            // 
+            Estado.HeaderText = "Estado";
+            Estado.MinimumWidth = 8;
+            Estado.Name = "Estado";
+            Estado.Width = 200;
+            // 
+            // FechaRegistro
+            // 
+            FechaRegistro.HeaderText = "Fecha Registro";
+            FechaRegistro.MinimumWidth = 8;
+            FechaRegistro.Name = "FechaRegistro";
+            FechaRegistro.Width = 150;
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Location = new Point(335, 438);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(1051, 501);
+            tabControl1.TabIndex = 5;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(DataMantenedorCategorias);
+            tabPage2.Controls.Add(label1);
+            tabPage2.Controls.Add(txtNombre);
+            tabPage2.Controls.Add(btnEliminar);
+            tabPage2.Controls.Add(btnEditar);
+            tabPage2.Controls.Add(btnAgregar);
+            tabPage2.Location = new Point(4, 34);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1043, 463);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Mantendor";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // DataMantenedorCategorias
+            // 
+            DataMantenedorCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataMantenedorCategorias.Columns.AddRange(new DataGridViewColumn[] { ID, NombreCategoria, stado, Fecha });
+            DataMantenedorCategorias.Location = new Point(283, 45);
+            DataMantenedorCategorias.Name = "DataMantenedorCategorias";
+            DataMantenedorCategorias.RowHeadersWidth = 62;
+            DataMantenedorCategorias.Size = new Size(664, 374);
+            DataMantenedorCategorias.TabIndex = 5;
+            DataMantenedorCategorias.CellContentClick += DataMantenedorCategorias_CellContentClick;
+            // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 8;
+            ID.Name = "ID";
+            ID.Width = 150;
+            // 
+            // NombreCategoria
+            // 
+            NombreCategoria.HeaderText = "Nombre Categoria";
+            NombreCategoria.MinimumWidth = 8;
+            NombreCategoria.Name = "NombreCategoria";
+            NombreCategoria.Width = 150;
+            // 
+            // stado
+            // 
+            stado.HeaderText = "Estado";
+            stado.MinimumWidth = 8;
+            stado.Name = "stado";
+            stado.Width = 150;
+            // 
+            // Fecha
+            // 
+            Fecha.HeaderText = "Fecha Registro";
+            Fecha.MinimumWidth = 8;
+            Fecha.Name = "Fecha";
+            Fecha.Width = 150;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.Location = new Point(44, 45);
+            label1.Name = "label1";
+            label1.Size = new Size(82, 25);
+            label1.TabIndex = 4;
+            label1.Text = "Nombre:";
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(44, 72);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(190, 31);
+            txtNombre.TabIndex = 3;
+            txtNombre.TextChanged += txtNombre_TextChanged;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.ForeColor = SystemColors.ActiveCaptionText;
+            btnEliminar.Location = new Point(67, 227);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(112, 34);
+            btnEliminar.TabIndex = 2;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // btnEditar
+            // 
+            btnEditar.ForeColor = SystemColors.ActiveCaptionText;
+            btnEditar.Location = new Point(67, 187);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(112, 34);
+            btnEditar.TabIndex = 1;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.ForeColor = SystemColors.ActiveCaptionText;
+            btnAgregar.Location = new Point(67, 147);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(112, 34);
+            btnAgregar.TabIndex = 0;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
             // button1
             // 
-            button1.BackgroundImage = Properties.Resources.anadir1;
-            button1.BackgroundImageLayout = ImageLayout.None;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(56, 409);
+            button1.ForeColor = SystemColors.ActiveCaptionText;
+            button1.Location = new Point(1439, 507);
             button1.Name = "button1";
-            button1.Size = new Size(168, 169);
-            button1.TabIndex = 5;
+            button1.Size = new Size(112, 34);
+            button1.TabIndex = 6;
+            button1.Text = "Home";
             button1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(290, 409);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1362, 521);
-            dataGridView1.TabIndex = 6;
+            button1.Click += button1_Click;
             // 
             // FrmCategoria
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1819, 982);
-            Controls.Add(dataGridView1);
             Controls.Add(button1);
+            Controls.Add(tabControl1);
             Controls.Add(menu);
             Controls.Add(label2);
             Controls.Add(menutitulo);
@@ -250,9 +428,15 @@
             Margin = new Padding(4);
             Name = "FrmCategoria";
             Text = "FrmCategoria";
+            WindowState = FormWindowState.Maximized;
             menu.ResumeLayout(false);
             menu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)DataListadoCategorias).EndInit();
+            tabControl1.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)DataMantenedorCategorias).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -273,7 +457,24 @@
         private FontAwesome.Sharp.IconMenuItem menuproveedores;
         private FontAwesome.Sharp.IconMenuItem menureportes;
         private FontAwesome.Sharp.IconMenuItem menuacercade;
+        private TabPage tabPage1;
+        private DataGridView DataListadoCategorias;
+        private TabControl tabControl1;
+        private TabPage tabPage2;
+        private DataGridView DataMantenedorCategorias;
+        private Label label1;
+        private TextBox txtNombre;
+        private Button btnEliminar;
+        private Button btnEditar;
+        private Button btnAgregar;
+        private DataGridViewTextBoxColumn IdCategoria;
+        private DataGridViewTextBoxColumn Nombre_Categoria;
+        private DataGridViewTextBoxColumn Estado;
+        private DataGridViewTextBoxColumn FechaRegistro;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn NombreCategoria;
+        private DataGridViewTextBoxColumn stado;
+        private DataGridViewTextBoxColumn Fecha;
         private Button button1;
-        private DataGridView dataGridView1;
     }
 }
