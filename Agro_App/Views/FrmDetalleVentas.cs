@@ -44,5 +44,12 @@ namespace Agro_App.Views
         {
 
         }
+
+        private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCategoria categoriaForm = new FrmCategoria();
+            categoriaForm.Show();
+            this.Hide();
+        }
     }
 }

@@ -71,5 +71,18 @@ namespace Agro_App
             categoriaForm.Show();
             this.Hide();
         }
+
+        private void menucompras_Click(object sender, EventArgs e)
+        {
+            FrmCompras comprasForm = new FrmCompras();
+            comprasForm.Show();
+
+            this.Hide();
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

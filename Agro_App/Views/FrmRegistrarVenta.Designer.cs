@@ -38,6 +38,7 @@
             menuventas = new FontAwesome.Sharp.IconMenuItem();
             submenuregistrarventa = new FontAwesome.Sharp.IconMenuItem();
             submenuverdetalleventa = new FontAwesome.Sharp.IconMenuItem();
+            ventasToolStripMenuItem = new ToolStripMenuItem();
             menucompras = new FontAwesome.Sharp.IconMenuItem();
             menuclientes = new FontAwesome.Sharp.IconMenuItem();
             menuproveedores = new FontAwesome.Sharp.IconMenuItem();
@@ -111,11 +112,11 @@
             label9.AutoSize = true;
             label9.BackColor = Color.ForestGreen;
             label9.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.White;
+            label9.ForeColor = SystemColors.Info;
             label9.Location = new Point(0, 5);
             label9.Name = "label9";
             label9.Size = new Size(256, 24);
-            label9.TabIndex = 5;
+            label9.TabIndex = 2;
             label9.Text = "Sistema de Agroservicio";
             // 
             // menu
@@ -160,18 +161,19 @@
             // categoriaToolStripMenuItem
             // 
             categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            categoriaToolStripMenuItem.Size = new Size(128, 22);
+            categoriaToolStripMenuItem.Size = new Size(180, 22);
             categoriaToolStripMenuItem.Text = "Categoria";
+            categoriaToolStripMenuItem.Click += categoriaToolStripMenuItem_Click;
             // 
             // productosToolStripMenuItem
             // 
             productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            productosToolStripMenuItem.Size = new Size(128, 22);
+            productosToolStripMenuItem.Size = new Size(180, 22);
             productosToolStripMenuItem.Text = "Productos";
             // 
             // menuventas
             // 
-            menuventas.DropDownItems.AddRange(new ToolStripItem[] { submenuregistrarventa, submenuverdetalleventa });
+            menuventas.DropDownItems.AddRange(new ToolStripItem[] { submenuregistrarventa, submenuverdetalleventa, ventasToolStripMenuItem });
             menuventas.IconChar = FontAwesome.Sharp.IconChar.Tags;
             menuventas.IconColor = Color.Black;
             menuventas.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -188,7 +190,7 @@
             submenuregistrarventa.IconColor = Color.Black;
             submenuregistrarventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             submenuregistrarventa.Name = "submenuregistrarventa";
-            submenuregistrarventa.Size = new Size(142, 22);
+            submenuregistrarventa.Size = new Size(184, 26);
             submenuregistrarventa.Text = "Registrar";
             submenuregistrarventa.Click += submenuregistrarventa_Click;
             // 
@@ -198,9 +200,15 @@
             submenuverdetalleventa.IconColor = Color.Black;
             submenuverdetalleventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             submenuverdetalleventa.Name = "submenuverdetalleventa";
-            submenuverdetalleventa.Size = new Size(142, 22);
+            submenuverdetalleventa.Size = new Size(184, 26);
             submenuverdetalleventa.Text = "Detalle Venta";
             submenuverdetalleventa.Click += submenuverdetalleventa_Click;
+            // 
+            // ventasToolStripMenuItem
+            // 
+            ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
+            ventasToolStripMenuItem.Size = new Size(184, 26);
+            ventasToolStripMenuItem.Text = "Ventas";
             // 
             // menucompras
             // 
@@ -213,6 +221,7 @@
             menucompras.Size = new Size(162, 169);
             menucompras.Text = "Compras";
             menucompras.TextImageRelation = TextImageRelation.ImageAboveText;
+            menucompras.Click += menucompras_Click;
             // 
             // menuclientes
             // 
@@ -725,5 +734,6 @@
         private Label label14;
         private Label label13;
         private Label label1;
+        private ToolStripMenuItem ventasToolStripMenuItem;
     }
 }
