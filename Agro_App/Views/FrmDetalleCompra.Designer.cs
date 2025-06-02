@@ -178,7 +178,7 @@
             submenuregistrarventa.IconColor = Color.Black;
             submenuregistrarventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             submenuregistrarventa.Name = "submenuregistrarventa";
-            submenuregistrarventa.Size = new Size(184, 26);
+            submenuregistrarventa.Size = new Size(142, 22);
             submenuregistrarventa.Text = "Registrar";
             submenuregistrarventa.Click += submenuregistrarventa_Click;
             // 
@@ -188,7 +188,7 @@
             submenuverdetalleventa.IconColor = Color.Black;
             submenuverdetalleventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             submenuverdetalleventa.Name = "submenuverdetalleventa";
-            submenuverdetalleventa.Size = new Size(184, 26);
+            submenuverdetalleventa.Size = new Size(142, 22);
             submenuverdetalleventa.Text = "Detalle Venta";
             submenuverdetalleventa.Click += submenuverdetalleventa_Click;
             // 
@@ -208,14 +208,14 @@
             // registrarCompraToolStripMenuItem
             // 
             registrarCompraToolStripMenuItem.Name = "registrarCompraToolStripMenuItem";
-            registrarCompraToolStripMenuItem.Size = new Size(166, 22);
+            registrarCompraToolStripMenuItem.Size = new Size(180, 22);
             registrarCompraToolStripMenuItem.Text = "Registrar Compra";
             registrarCompraToolStripMenuItem.Click += registrarCompraToolStripMenuItem_Click;
             // 
             // detalleCompraToolStripMenuItem
             // 
             detalleCompraToolStripMenuItem.Name = "detalleCompraToolStripMenuItem";
-            detalleCompraToolStripMenuItem.Size = new Size(166, 22);
+            detalleCompraToolStripMenuItem.Size = new Size(180, 22);
             detalleCompraToolStripMenuItem.Text = "Detalle Compra";
             // 
             // menuclientes
@@ -315,7 +315,7 @@
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton2.IconSize = 20;
             iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton2.Location = new Point(628, 463);
+            iconButton2.Location = new Point(650, 463);
             iconButton2.Name = "iconButton2";
             iconButton2.Size = new Size(108, 28);
             iconButton2.TabIndex = 33;
