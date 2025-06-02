@@ -44,7 +44,7 @@
             iconButton1 = new FontAwesome.Sharp.IconButton();
             textBox8 = new TextBox();
             textBox7 = new TextBox();
-            textBox6 = new TextBox();
+            txtproducto = new TextBox();
             numericUpDown1 = new NumericUpDown();
             label11 = new Label();
             label10 = new Label();
@@ -53,14 +53,14 @@
             label6 = new Label();
             label7 = new Label();
             groupBox2 = new GroupBox();
-            iconButton3 = new FontAwesome.Sharp.IconButton();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
+            btnbuscarproveedor = new FontAwesome.Sharp.IconButton();
+            txtnombreproveedor = new TextBox();
+            txtdocproveedor = new TextBox();
             label4 = new Label();
             label5 = new Label();
             groupBox1 = new GroupBox();
-            textBox1 = new TextBox();
-            comboBox1 = new ComboBox();
+            txtfecha = new TextBox();
+            cbotipodocumento = new ComboBox();
             label3 = new Label();
             label2 = new Label();
             menutitulo = new MenuStrip();
@@ -78,9 +78,13 @@
             menuclientes = new FontAwesome.Sharp.IconMenuItem();
             menuproveedores = new FontAwesome.Sharp.IconMenuItem();
             menureportes = new FontAwesome.Sharp.IconMenuItem();
+            reporteComprasToolStripMenuItem = new ToolStripMenuItem();
+            reporteVentasToolStripMenuItem = new ToolStripMenuItem();
             menuacercade = new FontAwesome.Sharp.IconMenuItem();
             menucasa = new FontAwesome.Sharp.IconMenuItem();
             label9 = new Label();
+            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            txtidproveedor = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -195,7 +199,7 @@
             groupBox3.Controls.Add(iconButton1);
             groupBox3.Controls.Add(textBox8);
             groupBox3.Controls.Add(textBox7);
-            groupBox3.Controls.Add(textBox6);
+            groupBox3.Controls.Add(txtproducto);
             groupBox3.Controls.Add(numericUpDown1);
             groupBox3.Controls.Add(label11);
             groupBox3.Controls.Add(label10);
@@ -212,7 +216,7 @@
             // 
             // iconButton4
             // 
-            iconButton4.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassPlus;
+            iconButton4.IconChar = FontAwesome.Sharp.IconChar.Search;
             iconButton4.IconColor = Color.Black;
             iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton4.IconSize = 20;
@@ -249,12 +253,12 @@
             textBox7.Size = new Size(94, 23);
             textBox7.TabIndex = 12;
             // 
-            // textBox6
+            // txtproducto
             // 
-            textBox6.Location = new Point(215, 68);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(161, 23);
-            textBox6.TabIndex = 11;
+            txtproducto.Location = new Point(215, 68);
+            txtproducto.Name = "txtproducto";
+            txtproducto.Size = new Size(161, 23);
+            txtproducto.TabIndex = 11;
             // 
             // numericUpDown1
             // 
@@ -317,9 +321,10 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(iconButton3);
-            groupBox2.Controls.Add(textBox3);
-            groupBox2.Controls.Add(textBox2);
+            groupBox2.Controls.Add(txtidproveedor);
+            groupBox2.Controls.Add(btnbuscarproveedor);
+            groupBox2.Controls.Add(txtnombreproveedor);
+            groupBox2.Controls.Add(txtdocproveedor);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(label5);
             groupBox2.Location = new Point(498, 40);
@@ -329,31 +334,31 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Información Poveedor";
             // 
-            // iconButton3
+            // btnbuscarproveedor
             // 
-            iconButton3.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassPlus;
-            iconButton3.IconColor = Color.Black;
-            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton3.IconSize = 20;
-            iconButton3.Location = new Point(125, 48);
-            iconButton3.Name = "iconButton3";
-            iconButton3.Size = new Size(36, 26);
-            iconButton3.TabIndex = 5;
-            iconButton3.UseVisualStyleBackColor = true;
+            btnbuscarproveedor.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassPlus;
+            btnbuscarproveedor.IconColor = Color.Black;
+            btnbuscarproveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnbuscarproveedor.IconSize = 20;
+            btnbuscarproveedor.Location = new Point(125, 48);
+            btnbuscarproveedor.Name = "btnbuscarproveedor";
+            btnbuscarproveedor.Size = new Size(36, 26);
+            btnbuscarproveedor.TabIndex = 5;
+            btnbuscarproveedor.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // txtnombreproveedor
             // 
-            textBox3.Location = new Point(179, 48);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(189, 23);
-            textBox3.TabIndex = 4;
+            txtnombreproveedor.Location = new Point(179, 48);
+            txtnombreproveedor.Name = "txtnombreproveedor";
+            txtnombreproveedor.Size = new Size(189, 23);
+            txtnombreproveedor.TabIndex = 4;
             // 
-            // textBox2
+            // txtdocproveedor
             // 
-            textBox2.Location = new Point(19, 49);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 3;
+            txtdocproveedor.Location = new Point(19, 49);
+            txtdocproveedor.Name = "txtdocproveedor";
+            txtdocproveedor.Size = new Size(100, 23);
+            txtdocproveedor.TabIndex = 3;
             // 
             // label4
             // 
@@ -375,8 +380,8 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(txtfecha);
+            groupBox1.Controls.Add(cbotipodocumento);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Location = new Point(29, 40);
@@ -386,20 +391,20 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Información Compra";
             // 
-            // textBox1
+            // txtfecha
             // 
-            textBox1.Location = new Point(31, 49);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(121, 23);
-            textBox1.TabIndex = 3;
+            txtfecha.Location = new Point(31, 49);
+            txtfecha.Name = "txtfecha";
+            txtfecha.Size = new Size(121, 23);
+            txtfecha.TabIndex = 3;
             // 
-            // comboBox1
+            // cbotipodocumento
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(200, 49);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(153, 23);
-            comboBox1.TabIndex = 2;
+            cbotipodocumento.FormattingEnabled = true;
+            cbotipodocumento.Location = new Point(200, 49);
+            cbotipodocumento.Name = "cbotipodocumento";
+            cbotipodocumento.Size = new Size(153, 23);
+            cbotipodocumento.TabIndex = 2;
             // 
             // label3
             // 
@@ -571,6 +576,7 @@
             // 
             // menureportes
             // 
+            menureportes.DropDownItems.AddRange(new ToolStripItem[] { reporteComprasToolStripMenuItem, reporteVentasToolStripMenuItem });
             menureportes.IconChar = FontAwesome.Sharp.IconChar.BarChart;
             menureportes.IconColor = Color.Black;
             menureportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -580,6 +586,20 @@
             menureportes.Size = new Size(162, 169);
             menureportes.Text = "Reportes";
             menureportes.TextImageRelation = TextImageRelation.ImageAboveText;
+            // 
+            // reporteComprasToolStripMenuItem
+            // 
+            reporteComprasToolStripMenuItem.Name = "reporteComprasToolStripMenuItem";
+            reporteComprasToolStripMenuItem.Size = new Size(180, 22);
+            reporteComprasToolStripMenuItem.Text = "Reporte Compras";
+            reporteComprasToolStripMenuItem.Click += reporteComprasToolStripMenuItem_Click;
+            // 
+            // reporteVentasToolStripMenuItem
+            // 
+            reporteVentasToolStripMenuItem.Name = "reporteVentasToolStripMenuItem";
+            reporteVentasToolStripMenuItem.Size = new Size(180, 22);
+            reporteVentasToolStripMenuItem.Text = "Reporte Ventas";
+            reporteVentasToolStripMenuItem.Click += reporteVentasToolStripMenuItem_Click;
             // 
             // menuacercade
             // 
@@ -616,6 +636,19 @@
             label9.Size = new Size(256, 24);
             label9.TabIndex = 12;
             label9.Text = "Sistema de Agroservicio";
+            // 
+            // sqlCommand1
+            // 
+            sqlCommand1.CommandTimeout = 30;
+            sqlCommand1.EnableOptimizedParameterBinding = false;
+            // 
+            // txtidproveedor
+            // 
+            txtidproveedor.Location = new Point(336, 16);
+            txtidproveedor.Name = "txtidproveedor";
+            txtidproveedor.Size = new Size(32, 23);
+            txtidproveedor.TabIndex = 6;
+            txtidproveedor.Visible = false;
             // 
             // FrmCompras
             // 
@@ -664,7 +697,7 @@
         private FontAwesome.Sharp.IconButton iconButton1;
         private TextBox textBox8;
         private TextBox textBox7;
-        private TextBox textBox6;
+        private TextBox txtproducto;
         private NumericUpDown numericUpDown1;
         private Label label11;
         private Label label10;
@@ -673,14 +706,14 @@
         private Label label6;
         private Label label7;
         private GroupBox groupBox2;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private TextBox textBox3;
-        private TextBox textBox2;
+        private FontAwesome.Sharp.IconButton btnbuscarproveedor;
+        private TextBox txtnombreproveedor;
+        private TextBox txtdocproveedor;
         private Label label4;
         private Label label5;
         private GroupBox groupBox1;
-        private TextBox textBox1;
-        private ComboBox comboBox1;
+        private TextBox txtfecha;
+        private ComboBox cbotipodocumento;
         private Label label3;
         private Label label2;
         private MenuStrip menutitulo;
@@ -701,5 +734,9 @@
         private ToolStripMenuItem registrarCompraToolStripMenuItem;
         private ToolStripMenuItem detalleCompraToolStripMenuItem;
         private Label label9;
+        private ToolStripMenuItem reporteComprasToolStripMenuItem;
+        private ToolStripMenuItem reporteVentasToolStripMenuItem;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
+        private TextBox txtidproveedor;
     }
 }

@@ -10,26 +10,11 @@ using System.Windows.Forms;
 
 namespace Agro_App.Views
 {
-    public partial class FrmDetalleCompra : Form
+    public partial class frmReporteCompras : Form
     {
-        public FrmDetalleCompra()
+        public frmReporteCompras()
         {
             InitializeComponent();
-        }
-
-
-
-        private void txtusuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void registrarCompraToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmCompras comprasForm = new FrmCompras();
-            comprasForm.Show();
-
-            this.Hide();
         }
 
         private void menuusuarios_Click(object sender, EventArgs e)
@@ -60,18 +45,26 @@ namespace Agro_App.Views
             this.Hide();
         }
 
-        private void submenureportecompras_Click(object sender, EventArgs e)
+        private void detalleCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmReporteCompras ReporteComprasForm = new frmReporteCompras();
-            ReporteComprasForm.Show();
+            FrmCompras comprasForm = new FrmCompras();
+            comprasForm.Show();
 
             this.Hide();
         }
 
-        private void submenureporteventas_Click(object sender, EventArgs e)
+        private void reporteVentasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReporteDeVenta ReporteDeVentaForm = new frmReporteDeVenta();
             ReporteDeVentaForm.Show();
+
+            this.Hide();
+        }
+
+        private void reporteCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteCompras ReporteComprasForm = new frmReporteCompras();
+            ReporteComprasForm.Show();
 
             this.Hide();
         }

@@ -56,7 +56,7 @@ namespace Agro_App.Views
 
         private void menucompras_Click(object sender, EventArgs e)
         {
-           
+
 
         }
 
@@ -71,6 +71,22 @@ namespace Agro_App.Views
         {
             FrmCompras comprasForm = new FrmCompras();
             comprasForm.Show();
+
+            this.Hide();
+        }
+
+        private void reporteComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteCompras ReporteComprasForm = new frmReporteCompras();
+            ReporteComprasForm.Show();
+
+            this.Hide();
+        }
+
+        private void reporteVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteDeVenta ReporteDeVentaForm = new frmReporteDeVenta();
+            ReporteDeVentaForm.Show();
 
             this.Hide();
         }

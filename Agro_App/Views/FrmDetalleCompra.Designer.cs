@@ -74,6 +74,8 @@
             iconButton4 = new FontAwesome.Sharp.IconButton();
             label12 = new Label();
             label1 = new Label();
+            submenureportecompras = new ToolStripMenuItem();
+            submenureporteventas = new ToolStripMenuItem();
             menu.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -208,14 +210,14 @@
             // registrarCompraToolStripMenuItem
             // 
             registrarCompraToolStripMenuItem.Name = "registrarCompraToolStripMenuItem";
-            registrarCompraToolStripMenuItem.Size = new Size(180, 22);
+            registrarCompraToolStripMenuItem.Size = new Size(166, 22);
             registrarCompraToolStripMenuItem.Text = "Registrar Compra";
             registrarCompraToolStripMenuItem.Click += registrarCompraToolStripMenuItem_Click;
             // 
             // detalleCompraToolStripMenuItem
             // 
             detalleCompraToolStripMenuItem.Name = "detalleCompraToolStripMenuItem";
-            detalleCompraToolStripMenuItem.Size = new Size(180, 22);
+            detalleCompraToolStripMenuItem.Size = new Size(166, 22);
             detalleCompraToolStripMenuItem.Text = "Detalle Compra";
             // 
             // menuclientes
@@ -244,6 +246,7 @@
             // 
             // menureportes
             // 
+            menureportes.DropDownItems.AddRange(new ToolStripItem[] { submenureportecompras, submenureporteventas });
             menureportes.IconChar = FontAwesome.Sharp.IconChar.BarChart;
             menureportes.IconColor = Color.Black;
             menureportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -542,6 +545,20 @@
             label1.Text = "Detalle Compra";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // submenureportecompras
+            // 
+            submenureportecompras.Name = "submenureportecompras";
+            submenureportecompras.Size = new Size(180, 22);
+            submenureportecompras.Text = "Reporte Compras";
+            submenureportecompras.Click += submenureportecompras_Click;
+            // 
+            // submenureporteventas
+            // 
+            submenureporteventas.Name = "submenureporteventas";
+            submenureporteventas.Size = new Size(180, 22);
+            submenureporteventas.Text = "Reporte Ventas";
+            submenureporteventas.Click += submenureporteventas_Click;
+            // 
             // FrmDetalleCompra
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -615,5 +632,7 @@
         private TextBox textBox9;
         private Label label6;
         private FontAwesome.Sharp.IconButton iconButton2;
+        private ToolStripMenuItem submenureportecompras;
+        private ToolStripMenuItem submenureporteventas;
     }
 }

@@ -44,6 +44,8 @@
             menuclientes = new FontAwesome.Sharp.IconMenuItem();
             menuproveedores = new FontAwesome.Sharp.IconMenuItem();
             menureportes = new FontAwesome.Sharp.IconMenuItem();
+            reporteComprasToolStripMenuItem = new ToolStripMenuItem();
+            reporteVentasToolStripMenuItem = new ToolStripMenuItem();
             menuacercade = new FontAwesome.Sharp.IconMenuItem();
             tabPage1 = new TabPage();
             DataListadoCategorias = new DataGridView();
@@ -81,7 +83,7 @@
             menutitulo.Name = "menutitulo";
             menutitulo.Padding = new Padding(6, 1, 0, 1);
             menutitulo.RightToLeft = RightToLeft.Yes;
-            menutitulo.Size = new Size(959, 116);
+            menutitulo.Size = new Size(1370, 116);
             menutitulo.TabIndex = 2;
             menutitulo.Text = "menuStrip2";
             // 
@@ -106,7 +108,7 @@
             menu.Name = "menu";
             menu.Padding = new Padding(6, 1, 0, 1);
             menu.RightToLeft = RightToLeft.No;
-            menu.Size = new Size(959, 171);
+            menu.Size = new Size(1370, 171);
             menu.TabIndex = 4;
             menu.Text = "menuStrip1";
             // 
@@ -196,14 +198,14 @@
             // registrarCompraToolStripMenuItem
             // 
             registrarCompraToolStripMenuItem.Name = "registrarCompraToolStripMenuItem";
-            registrarCompraToolStripMenuItem.Size = new Size(180, 22);
+            registrarCompraToolStripMenuItem.Size = new Size(166, 22);
             registrarCompraToolStripMenuItem.Text = "Registrar Compra";
             registrarCompraToolStripMenuItem.Click += registrarCompraToolStripMenuItem_Click;
             // 
             // detalleCompraToolStripMenuItem
             // 
             detalleCompraToolStripMenuItem.Name = "detalleCompraToolStripMenuItem";
-            detalleCompraToolStripMenuItem.Size = new Size(180, 22);
+            detalleCompraToolStripMenuItem.Size = new Size(166, 22);
             detalleCompraToolStripMenuItem.Text = "Detalle Compra";
             // 
             // menuclientes
@@ -232,6 +234,7 @@
             // 
             // menureportes
             // 
+            menureportes.DropDownItems.AddRange(new ToolStripItem[] { reporteComprasToolStripMenuItem, reporteVentasToolStripMenuItem });
             menureportes.IconChar = FontAwesome.Sharp.IconChar.BarChart;
             menureportes.IconColor = Color.Black;
             menureportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -241,6 +244,20 @@
             menureportes.Size = new Size(162, 169);
             menureportes.Text = "Reportes";
             menureportes.TextImageRelation = TextImageRelation.ImageAboveText;
+            // 
+            // reporteComprasToolStripMenuItem
+            // 
+            reporteComprasToolStripMenuItem.Name = "reporteComprasToolStripMenuItem";
+            reporteComprasToolStripMenuItem.Size = new Size(180, 22);
+            reporteComprasToolStripMenuItem.Text = "Reporte Compras";
+            reporteComprasToolStripMenuItem.Click += reporteComprasToolStripMenuItem_Click;
+            // 
+            // reporteVentasToolStripMenuItem
+            // 
+            reporteVentasToolStripMenuItem.Name = "reporteVentasToolStripMenuItem";
+            reporteVentasToolStripMenuItem.Size = new Size(180, 22);
+            reporteVentasToolStripMenuItem.Text = "Reporte Ventas";
+            reporteVentasToolStripMenuItem.Click += reporteVentasToolStripMenuItem_Click;
             // 
             // menuacercade
             // 
@@ -445,7 +462,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(959, 449);
+            ClientSize = new Size(1370, 749);
             Controls.Add(button1);
             Controls.Add(tabControl1);
             Controls.Add(menu);
@@ -505,5 +522,7 @@
         private Button button1;
         private ToolStripMenuItem registrarCompraToolStripMenuItem;
         private ToolStripMenuItem detalleCompraToolStripMenuItem;
+        private ToolStripMenuItem reporteComprasToolStripMenuItem;
+        private ToolStripMenuItem reporteVentasToolStripMenuItem;
     }
 }

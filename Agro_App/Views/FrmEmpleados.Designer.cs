@@ -43,6 +43,8 @@
             menuclientes = new FontAwesome.Sharp.IconMenuItem();
             menuproveedores = new FontAwesome.Sharp.IconMenuItem();
             menureportes = new FontAwesome.Sharp.IconMenuItem();
+            reporteComprasToolStripMenuItem = new ToolStripMenuItem();
+            reporteVentasToolStripMenuItem = new ToolStripMenuItem();
             menuacercade = new FontAwesome.Sharp.IconMenuItem();
             menucasa = new FontAwesome.Sharp.IconMenuItem();
             label9 = new Label();
@@ -185,14 +187,14 @@
             // registrarCompraToolStripMenuItem
             // 
             registrarCompraToolStripMenuItem.Name = "registrarCompraToolStripMenuItem";
-            registrarCompraToolStripMenuItem.Size = new Size(180, 22);
+            registrarCompraToolStripMenuItem.Size = new Size(166, 22);
             registrarCompraToolStripMenuItem.Text = "Registrar Compra";
             registrarCompraToolStripMenuItem.Click += registrarCompraToolStripMenuItem_Click;
             // 
             // detalleCompraToolStripMenuItem
             // 
             detalleCompraToolStripMenuItem.Name = "detalleCompraToolStripMenuItem";
-            detalleCompraToolStripMenuItem.Size = new Size(180, 22);
+            detalleCompraToolStripMenuItem.Size = new Size(166, 22);
             detalleCompraToolStripMenuItem.Text = "Detalle Compra";
             detalleCompraToolStripMenuItem.Click += detalleCompraToolStripMenuItem_Click;
             // 
@@ -222,6 +224,7 @@
             // 
             // menureportes
             // 
+            menureportes.DropDownItems.AddRange(new ToolStripItem[] { reporteComprasToolStripMenuItem, reporteVentasToolStripMenuItem });
             menureportes.IconChar = FontAwesome.Sharp.IconChar.BarChart;
             menureportes.IconColor = Color.Black;
             menureportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -231,6 +234,20 @@
             menureportes.Size = new Size(162, 169);
             menureportes.Text = "Reportes";
             menureportes.TextImageRelation = TextImageRelation.ImageAboveText;
+            // 
+            // reporteComprasToolStripMenuItem
+            // 
+            reporteComprasToolStripMenuItem.Name = "reporteComprasToolStripMenuItem";
+            reporteComprasToolStripMenuItem.Size = new Size(180, 22);
+            reporteComprasToolStripMenuItem.Text = "Reporte Compras";
+            reporteComprasToolStripMenuItem.Click += reporteComprasToolStripMenuItem_Click;
+            // 
+            // reporteVentasToolStripMenuItem
+            // 
+            reporteVentasToolStripMenuItem.Name = "reporteVentasToolStripMenuItem";
+            reporteVentasToolStripMenuItem.Size = new Size(180, 22);
+            reporteVentasToolStripMenuItem.Text = "Reporte Ventas";
+            reporteVentasToolStripMenuItem.Click += reporteVentasToolStripMenuItem_Click;
             // 
             // menuacercade
             // 
@@ -583,5 +600,7 @@
         private FontAwesome.Sharp.IconMenuItem submenuverdetalleventa;
         private ToolStripMenuItem registrarCompraToolStripMenuItem;
         private ToolStripMenuItem detalleCompraToolStripMenuItem;
+        private ToolStripMenuItem reporteComprasToolStripMenuItem;
+        private ToolStripMenuItem reporteVentasToolStripMenuItem;
     }
 }
