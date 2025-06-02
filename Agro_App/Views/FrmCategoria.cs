@@ -130,5 +130,29 @@ namespace Agro_App.Views
         {
 
         }
+
+        private void registrarVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCompras comprasForm = new FrmCompras();
+            comprasForm.Show();
+
+            this.Hide();
+        }
+
+        private void registrarCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCompras comprasForm = new FrmCompras();
+            comprasForm.Show();
+
+            this.Hide();
+        }
+
+        private void menuusuarios_Click(object sender, EventArgs e)
+        {
+
+            FrmEmpleados empleadosForm = new FrmEmpleados();
+            empleadosForm.Show(); // Muestra el formulario frmEmpleados
+            this.Hide();
+        }
     }
 }

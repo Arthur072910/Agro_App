@@ -37,6 +37,8 @@
             submenuregistrar = new FontAwesome.Sharp.IconMenuItem();
             submenuverdetalleventa = new FontAwesome.Sharp.IconMenuItem();
             menucompras = new FontAwesome.Sharp.IconMenuItem();
+            registrarCompraToolStripMenuItem = new ToolStripMenuItem();
+            detalleCompraToolStripMenuItem = new ToolStripMenuItem();
             menuclientes = new FontAwesome.Sharp.IconMenuItem();
             menuproveedores = new FontAwesome.Sharp.IconMenuItem();
             menureportes = new FontAwesome.Sharp.IconMenuItem();
@@ -91,14 +93,14 @@
             // categoriaToolStripMenuItem
             // 
             categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            categoriaToolStripMenuItem.Size = new Size(180, 22);
+            categoriaToolStripMenuItem.Size = new Size(128, 22);
             categoriaToolStripMenuItem.Text = "Categoria";
             categoriaToolStripMenuItem.Click += categoriaToolStripMenuItem_Click;
             // 
             // productosToolStripMenuItem
             // 
             productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            productosToolStripMenuItem.Size = new Size(180, 22);
+            productosToolStripMenuItem.Size = new Size(128, 22);
             productosToolStripMenuItem.Text = "Productos";
             productosToolStripMenuItem.Click += productosToolStripMenuItem_Click;
             // 
@@ -138,6 +140,7 @@
             // 
             // menucompras
             // 
+            menucompras.DropDownItems.AddRange(new ToolStripItem[] { registrarCompraToolStripMenuItem, detalleCompraToolStripMenuItem });
             menucompras.IconChar = FontAwesome.Sharp.IconChar.CartFlatbed;
             menucompras.IconColor = Color.Black;
             menucompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -148,6 +151,20 @@
             menucompras.Text = "Compras";
             menucompras.TextImageRelation = TextImageRelation.ImageAboveText;
             menucompras.Click += menucompras_Click;
+            // 
+            // registrarCompraToolStripMenuItem
+            // 
+            registrarCompraToolStripMenuItem.Name = "registrarCompraToolStripMenuItem";
+            registrarCompraToolStripMenuItem.Size = new Size(180, 22);
+            registrarCompraToolStripMenuItem.Text = "Registrar Compra";
+            registrarCompraToolStripMenuItem.Click += registrarCompraToolStripMenuItem_Click;
+            // 
+            // detalleCompraToolStripMenuItem
+            // 
+            detalleCompraToolStripMenuItem.Name = "detalleCompraToolStripMenuItem";
+            detalleCompraToolStripMenuItem.Size = new Size(180, 22);
+            detalleCompraToolStripMenuItem.Text = "Detalle Compra";
+            detalleCompraToolStripMenuItem.Click += detalleCompraToolStripMenuItem_Click;
             // 
             // menuclientes
             // 
@@ -272,5 +289,7 @@
         private ToolStripMenuItem productosToolStripMenuItem;
         private FontAwesome.Sharp.IconMenuItem submenuregistrar;
         private FontAwesome.Sharp.IconMenuItem submenuverdetalleventa;
+        private ToolStripMenuItem registrarCompraToolStripMenuItem;
+        private ToolStripMenuItem detalleCompraToolStripMenuItem;
     }
 }

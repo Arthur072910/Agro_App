@@ -74,15 +74,28 @@ namespace Agro_App
 
         private void menucompras_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void registrarCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             FrmCompras comprasForm = new FrmCompras();
             comprasForm.Show();
 
             this.Hide();
         }
 
-        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void detalleCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FrmDetalleCompra DetallecompraForm = new FrmDetalleCompra();
+            DetallecompraForm.Show();
 
+            this.Hide();
         }
     }
 }

@@ -84,6 +84,8 @@
             comboBox1 = new ComboBox();
             label3 = new Label();
             label2 = new Label();
+            registrarCompraToolStripMenuItem = new ToolStripMenuItem();
+            detalleCompraToolStripMenuItem = new ToolStripMenuItem();
             menu.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -161,14 +163,14 @@
             // categoriaToolStripMenuItem
             // 
             categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            categoriaToolStripMenuItem.Size = new Size(180, 22);
+            categoriaToolStripMenuItem.Size = new Size(128, 22);
             categoriaToolStripMenuItem.Text = "Categoria";
             categoriaToolStripMenuItem.Click += categoriaToolStripMenuItem_Click;
             // 
             // productosToolStripMenuItem
             // 
             productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            productosToolStripMenuItem.Size = new Size(180, 22);
+            productosToolStripMenuItem.Size = new Size(128, 22);
             productosToolStripMenuItem.Text = "Productos";
             // 
             // menuventas
@@ -190,7 +192,7 @@
             submenuregistrarventa.IconColor = Color.Black;
             submenuregistrarventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             submenuregistrarventa.Name = "submenuregistrarventa";
-            submenuregistrarventa.Size = new Size(184, 26);
+            submenuregistrarventa.Size = new Size(142, 22);
             submenuregistrarventa.Text = "Registrar";
             submenuregistrarventa.Click += submenuregistrarventa_Click;
             // 
@@ -200,18 +202,19 @@
             submenuverdetalleventa.IconColor = Color.Black;
             submenuverdetalleventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             submenuverdetalleventa.Name = "submenuverdetalleventa";
-            submenuverdetalleventa.Size = new Size(184, 26);
+            submenuverdetalleventa.Size = new Size(142, 22);
             submenuverdetalleventa.Text = "Detalle Venta";
             submenuverdetalleventa.Click += submenuverdetalleventa_Click;
             // 
             // ventasToolStripMenuItem
             // 
             ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            ventasToolStripMenuItem.Size = new Size(184, 26);
+            ventasToolStripMenuItem.Size = new Size(142, 22);
             ventasToolStripMenuItem.Text = "Ventas";
             // 
             // menucompras
             // 
+            menucompras.DropDownItems.AddRange(new ToolStripItem[] { registrarCompraToolStripMenuItem, detalleCompraToolStripMenuItem });
             menucompras.IconChar = FontAwesome.Sharp.IconChar.CartFlatbed;
             menucompras.IconColor = Color.Black;
             menucompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -648,6 +651,19 @@
             label2.TabIndex = 0;
             label2.Text = "Fecha: ";
             // 
+            // registrarCompraToolStripMenuItem
+            // 
+            registrarCompraToolStripMenuItem.Name = "registrarCompraToolStripMenuItem";
+            registrarCompraToolStripMenuItem.Size = new Size(180, 22);
+            registrarCompraToolStripMenuItem.Text = "Registrar Compra";
+            registrarCompraToolStripMenuItem.Click += registrarCompraToolStripMenuItem_Click;
+            // 
+            // detalleCompraToolStripMenuItem
+            // 
+            detalleCompraToolStripMenuItem.Name = "detalleCompraToolStripMenuItem";
+            detalleCompraToolStripMenuItem.Size = new Size(180, 22);
+            detalleCompraToolStripMenuItem.Text = "Detalle Compra";
+            // 
             // FrmRegistrarVenta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -735,5 +751,7 @@
         private Label label13;
         private Label label1;
         private ToolStripMenuItem ventasToolStripMenuItem;
+        private ToolStripMenuItem registrarCompraToolStripMenuItem;
+        private ToolStripMenuItem detalleCompraToolStripMenuItem;
     }
 }

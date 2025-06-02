@@ -39,6 +39,8 @@
             submenuregistrar = new FontAwesome.Sharp.IconMenuItem();
             submenuverdetalleventa = new FontAwesome.Sharp.IconMenuItem();
             menucompras = new FontAwesome.Sharp.IconMenuItem();
+            registrarCompraToolStripMenuItem = new ToolStripMenuItem();
+            detalleCompraToolStripMenuItem = new ToolStripMenuItem();
             menuclientes = new FontAwesome.Sharp.IconMenuItem();
             menuproveedores = new FontAwesome.Sharp.IconMenuItem();
             menureportes = new FontAwesome.Sharp.IconMenuItem();
@@ -77,9 +79,9 @@
             menutitulo.ImageScalingSize = new Size(20, 20);
             menutitulo.Location = new Point(0, 0);
             menutitulo.Name = "menutitulo";
-            menutitulo.Padding = new Padding(9, 2, 0, 2);
+            menutitulo.Padding = new Padding(6, 1, 0, 1);
             menutitulo.RightToLeft = RightToLeft.Yes;
-            menutitulo.Size = new Size(1819, 193);
+            menutitulo.Size = new Size(959, 116);
             menutitulo.TabIndex = 2;
             menutitulo.Text = "menuStrip2";
             // 
@@ -89,10 +91,9 @@
             label2.BackColor = Color.ForestGreen;
             label2.Font = new Font("Arial Rounded MT Bold", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(56, 75);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(39, 45);
             label2.Name = "label2";
-            label2.Size = new Size(963, 60);
+            label2.Size = new Size(648, 40);
             label2.TabIndex = 3;
             label2.Text = "Sistema de Agroservicio - Categorias\r\n";
             // 
@@ -101,11 +102,11 @@
             menu.BackColor = Color.White;
             menu.ImageScalingSize = new Size(20, 20);
             menu.Items.AddRange(new ToolStripItem[] { menuusuarios, menumantenedor, menuventas, menucompras, menuclientes, menuproveedores, menureportes, menuacercade });
-            menu.Location = new Point(0, 193);
+            menu.Location = new Point(0, 116);
             menu.Name = "menu";
-            menu.Padding = new Padding(9, 2, 0, 2);
+            menu.Padding = new Padding(6, 1, 0, 1);
             menu.RightToLeft = RightToLeft.No;
-            menu.Size = new Size(1819, 183);
+            menu.Size = new Size(959, 171);
             menu.TabIndex = 4;
             menu.Text = "menuStrip1";
             // 
@@ -117,9 +118,10 @@
             menuusuarios.IconSize = 150;
             menuusuarios.ImageScaling = ToolStripItemImageScaling.None;
             menuusuarios.Name = "menuusuarios";
-            menuusuarios.Size = new Size(166, 179);
+            menuusuarios.Size = new Size(162, 169);
             menuusuarios.Text = "Usuarios";
             menuusuarios.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuusuarios.Click += menuusuarios_Click;
             // 
             // menumantenedor
             // 
@@ -130,7 +132,7 @@
             menumantenedor.IconSize = 150;
             menumantenedor.ImageScaling = ToolStripItemImageScaling.None;
             menumantenedor.Name = "menumantenedor";
-            menumantenedor.Size = new Size(166, 179);
+            menumantenedor.Size = new Size(162, 169);
             menumantenedor.Text = "Mantenedor";
             menumantenedor.TextImageRelation = TextImageRelation.ImageAboveText;
             menumantenedor.Click += menumantenedor_Click;
@@ -138,13 +140,13 @@
             // categoriaToolStripMenuItem
             // 
             categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            categoriaToolStripMenuItem.Size = new Size(195, 34);
+            categoriaToolStripMenuItem.Size = new Size(128, 22);
             categoriaToolStripMenuItem.Text = "Categoria";
             // 
             // productosToolStripMenuItem
             // 
             productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            productosToolStripMenuItem.Size = new Size(195, 34);
+            productosToolStripMenuItem.Size = new Size(128, 22);
             productosToolStripMenuItem.Text = "Productos";
             // 
             // menuventas
@@ -156,7 +158,7 @@
             menuventas.IconSize = 150;
             menuventas.ImageScaling = ToolStripItemImageScaling.None;
             menuventas.Name = "menuventas";
-            menuventas.Size = new Size(166, 179);
+            menuventas.Size = new Size(162, 169);
             menuventas.Text = "Ventas";
             menuventas.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -166,7 +168,7 @@
             submenuregistrar.IconColor = Color.Black;
             submenuregistrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             submenuregistrar.Name = "submenuregistrar";
-            submenuregistrar.Size = new Size(217, 34);
+            submenuregistrar.Size = new Size(142, 22);
             submenuregistrar.Text = "Registrar";
             // 
             // submenuverdetalleventa
@@ -175,20 +177,34 @@
             submenuverdetalleventa.IconColor = Color.Black;
             submenuverdetalleventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             submenuverdetalleventa.Name = "submenuverdetalleventa";
-            submenuverdetalleventa.Size = new Size(217, 34);
+            submenuverdetalleventa.Size = new Size(142, 22);
             submenuverdetalleventa.Text = "Detalle Venta";
             // 
             // menucompras
             // 
+            menucompras.DropDownItems.AddRange(new ToolStripItem[] { registrarCompraToolStripMenuItem, detalleCompraToolStripMenuItem });
             menucompras.IconChar = FontAwesome.Sharp.IconChar.CartFlatbed;
             menucompras.IconColor = Color.Black;
             menucompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menucompras.IconSize = 150;
             menucompras.ImageScaling = ToolStripItemImageScaling.None;
             menucompras.Name = "menucompras";
-            menucompras.Size = new Size(166, 179);
+            menucompras.Size = new Size(162, 169);
             menucompras.Text = "Compras";
             menucompras.TextImageRelation = TextImageRelation.ImageAboveText;
+            // 
+            // registrarCompraToolStripMenuItem
+            // 
+            registrarCompraToolStripMenuItem.Name = "registrarCompraToolStripMenuItem";
+            registrarCompraToolStripMenuItem.Size = new Size(180, 22);
+            registrarCompraToolStripMenuItem.Text = "Registrar Compra";
+            registrarCompraToolStripMenuItem.Click += registrarCompraToolStripMenuItem_Click;
+            // 
+            // detalleCompraToolStripMenuItem
+            // 
+            detalleCompraToolStripMenuItem.Name = "detalleCompraToolStripMenuItem";
+            detalleCompraToolStripMenuItem.Size = new Size(180, 22);
+            detalleCompraToolStripMenuItem.Text = "Detalle Compra";
             // 
             // menuclientes
             // 
@@ -198,7 +214,7 @@
             menuclientes.IconSize = 150;
             menuclientes.ImageScaling = ToolStripItemImageScaling.None;
             menuclientes.Name = "menuclientes";
-            menuclientes.Size = new Size(166, 179);
+            menuclientes.Size = new Size(162, 169);
             menuclientes.Text = "Clientes";
             menuclientes.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -210,7 +226,7 @@
             menuproveedores.IconSize = 150;
             menuproveedores.ImageScaling = ToolStripItemImageScaling.None;
             menuproveedores.Name = "menuproveedores";
-            menuproveedores.Size = new Size(166, 179);
+            menuproveedores.Size = new Size(162, 169);
             menuproveedores.Text = "Proveedores";
             menuproveedores.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -222,7 +238,7 @@
             menureportes.IconSize = 150;
             menureportes.ImageScaling = ToolStripItemImageScaling.None;
             menureportes.Name = "menureportes";
-            menureportes.Size = new Size(166, 179);
+            menureportes.Size = new Size(162, 169);
             menureportes.Text = "Reportes";
             menureportes.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -234,17 +250,18 @@
             menuacercade.IconSize = 150;
             menuacercade.ImageScaling = ToolStripItemImageScaling.None;
             menuacercade.Name = "menuacercade";
-            menuacercade.Size = new Size(166, 179);
+            menuacercade.Size = new Size(162, 169);
             menuacercade.Text = "Acerca de ";
             menuacercade.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
             // tabPage1
             // 
             tabPage1.Controls.Add(DataListadoCategorias);
-            tabPage1.Location = new Point(4, 34);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Margin = new Padding(2);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1043, 463);
+            tabPage1.Padding = new Padding(2);
+            tabPage1.Size = new Size(728, 273);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Listado de Categorias";
             tabPage1.UseVisualStyleBackColor = true;
@@ -253,10 +270,11 @@
             // 
             DataListadoCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DataListadoCategorias.Columns.AddRange(new DataGridViewColumn[] { IdCategoria, Nombre_Categoria, Estado, FechaRegistro });
-            DataListadoCategorias.Location = new Point(191, 18);
+            DataListadoCategorias.Location = new Point(134, 11);
+            DataListadoCategorias.Margin = new Padding(2);
             DataListadoCategorias.Name = "DataListadoCategorias";
             DataListadoCategorias.RowHeadersWidth = 62;
-            DataListadoCategorias.Size = new Size(664, 410);
+            DataListadoCategorias.Size = new Size(465, 246);
             DataListadoCategorias.TabIndex = 0;
             // 
             // IdCategoria
@@ -291,10 +309,11 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
-            tabControl1.Location = new Point(335, 438);
+            tabControl1.Location = new Point(234, 263);
+            tabControl1.Margin = new Padding(2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1051, 501);
+            tabControl1.Size = new Size(736, 301);
             tabControl1.TabIndex = 5;
             // 
             // tabPage2
@@ -305,10 +324,11 @@
             tabPage2.Controls.Add(btnEliminar);
             tabPage2.Controls.Add(btnEditar);
             tabPage2.Controls.Add(btnAgregar);
-            tabPage2.Location = new Point(4, 34);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Margin = new Padding(2);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1043, 463);
+            tabPage2.Padding = new Padding(2);
+            tabPage2.Size = new Size(728, 273);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Mantendor";
             tabPage2.UseVisualStyleBackColor = true;
@@ -317,10 +337,11 @@
             // 
             DataMantenedorCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DataMantenedorCategorias.Columns.AddRange(new DataGridViewColumn[] { ID, NombreCategoria, stado, Fecha });
-            DataMantenedorCategorias.Location = new Point(283, 45);
+            DataMantenedorCategorias.Location = new Point(198, 27);
+            DataMantenedorCategorias.Margin = new Padding(2);
             DataMantenedorCategorias.Name = "DataMantenedorCategorias";
             DataMantenedorCategorias.RowHeadersWidth = 62;
-            DataMantenedorCategorias.Size = new Size(664, 374);
+            DataMantenedorCategorias.Size = new Size(465, 224);
             DataMantenedorCategorias.TabIndex = 5;
             DataMantenedorCategorias.CellContentClick += DataMantenedorCategorias_CellContentClick;
             // 
@@ -356,26 +377,29 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(44, 45);
+            label1.Location = new Point(31, 27);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(82, 25);
+            label1.Size = new Size(54, 15);
             label1.TabIndex = 4;
             label1.Text = "Nombre:";
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(44, 72);
+            txtNombre.Location = new Point(31, 43);
+            txtNombre.Margin = new Padding(2);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(190, 31);
+            txtNombre.Size = new Size(134, 23);
             txtNombre.TabIndex = 3;
             txtNombre.TextChanged += txtNombre_TextChanged;
             // 
             // btnEliminar
             // 
             btnEliminar.ForeColor = SystemColors.ActiveCaptionText;
-            btnEliminar.Location = new Point(67, 227);
+            btnEliminar.Location = new Point(47, 136);
+            btnEliminar.Margin = new Padding(2);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(112, 34);
+            btnEliminar.Size = new Size(78, 20);
             btnEliminar.TabIndex = 2;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -384,9 +408,10 @@
             // btnEditar
             // 
             btnEditar.ForeColor = SystemColors.ActiveCaptionText;
-            btnEditar.Location = new Point(67, 187);
+            btnEditar.Location = new Point(47, 112);
+            btnEditar.Margin = new Padding(2);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(112, 34);
+            btnEditar.Size = new Size(78, 20);
             btnEditar.TabIndex = 1;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
@@ -395,9 +420,10 @@
             // btnAgregar
             // 
             btnAgregar.ForeColor = SystemColors.ActiveCaptionText;
-            btnAgregar.Location = new Point(67, 147);
+            btnAgregar.Location = new Point(47, 88);
+            btnAgregar.Margin = new Padding(2);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(112, 34);
+            btnAgregar.Size = new Size(78, 20);
             btnAgregar.TabIndex = 0;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -406,9 +432,10 @@
             // button1
             // 
             button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(1439, 507);
+            button1.Location = new Point(1007, 304);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
-            button1.Size = new Size(112, 34);
+            button1.Size = new Size(78, 20);
             button1.TabIndex = 6;
             button1.Text = "Home";
             button1.UseVisualStyleBackColor = true;
@@ -416,16 +443,16 @@
             // 
             // FrmCategoria
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1819, 982);
+            ClientSize = new Size(959, 449);
             Controls.Add(button1);
             Controls.Add(tabControl1);
             Controls.Add(menu);
             Controls.Add(label2);
             Controls.Add(menutitulo);
             ForeColor = SystemColors.Control;
-            Margin = new Padding(4);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FrmCategoria";
             Text = "FrmCategoria";
             WindowState = FormWindowState.Maximized;
@@ -476,5 +503,7 @@
         private DataGridViewTextBoxColumn stado;
         private DataGridViewTextBoxColumn Fecha;
         private Button button1;
+        private ToolStripMenuItem registrarCompraToolStripMenuItem;
+        private ToolStripMenuItem detalleCompraToolStripMenuItem;
     }
 }

@@ -73,11 +73,14 @@
             submenuregistrarventa = new FontAwesome.Sharp.IconMenuItem();
             submenuverdetalleventa = new FontAwesome.Sharp.IconMenuItem();
             menucompras = new FontAwesome.Sharp.IconMenuItem();
+            registrarCompraToolStripMenuItem = new ToolStripMenuItem();
+            detalleCompraToolStripMenuItem = new ToolStripMenuItem();
             menuclientes = new FontAwesome.Sharp.IconMenuItem();
             menuproveedores = new FontAwesome.Sharp.IconMenuItem();
             menureportes = new FontAwesome.Sharp.IconMenuItem();
             menuacercade = new FontAwesome.Sharp.IconMenuItem();
             menucasa = new FontAwesome.Sharp.IconMenuItem();
+            label9 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -471,14 +474,14 @@
             // categoriaToolStripMenuItem
             // 
             categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            categoriaToolStripMenuItem.Size = new Size(180, 22);
+            categoriaToolStripMenuItem.Size = new Size(128, 22);
             categoriaToolStripMenuItem.Text = "Categoria";
             categoriaToolStripMenuItem.Click += categoriaToolStripMenuItem_Click;
             // 
             // productosToolStripMenuItem
             // 
             productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            productosToolStripMenuItem.Size = new Size(180, 22);
+            productosToolStripMenuItem.Size = new Size(128, 22);
             productosToolStripMenuItem.Text = "Productos";
             // 
             // menuventas
@@ -500,7 +503,7 @@
             submenuregistrarventa.IconColor = Color.Black;
             submenuregistrarventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             submenuregistrarventa.Name = "submenuregistrarventa";
-            submenuregistrarventa.Size = new Size(184, 26);
+            submenuregistrarventa.Size = new Size(142, 22);
             submenuregistrarventa.Text = "Registrar";
             submenuregistrarventa.Click += submenuregistrarventa_Click;
             // 
@@ -510,12 +513,13 @@
             submenuverdetalleventa.IconColor = Color.Black;
             submenuverdetalleventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             submenuverdetalleventa.Name = "submenuverdetalleventa";
-            submenuverdetalleventa.Size = new Size(184, 26);
+            submenuverdetalleventa.Size = new Size(142, 22);
             submenuverdetalleventa.Text = "Detalle Venta";
             submenuverdetalleventa.Click += submenuverdetalleventa_Click;
             // 
             // menucompras
             // 
+            menucompras.DropDownItems.AddRange(new ToolStripItem[] { registrarCompraToolStripMenuItem, detalleCompraToolStripMenuItem });
             menucompras.IconChar = FontAwesome.Sharp.IconChar.CartFlatbed;
             menucompras.IconColor = Color.Black;
             menucompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -526,6 +530,20 @@
             menucompras.Text = "Compras";
             menucompras.TextImageRelation = TextImageRelation.ImageAboveText;
             menucompras.Click += menucompras_Click;
+            // 
+            // registrarCompraToolStripMenuItem
+            // 
+            registrarCompraToolStripMenuItem.Name = "registrarCompraToolStripMenuItem";
+            registrarCompraToolStripMenuItem.Size = new Size(180, 22);
+            registrarCompraToolStripMenuItem.Text = "Registrar Compra";
+            registrarCompraToolStripMenuItem.Click += registrarCompraToolStripMenuItem_Click;
+            // 
+            // detalleCompraToolStripMenuItem
+            // 
+            detalleCompraToolStripMenuItem.Name = "detalleCompraToolStripMenuItem";
+            detalleCompraToolStripMenuItem.Size = new Size(180, 22);
+            detalleCompraToolStripMenuItem.Text = "Detalle Compra";
+            detalleCompraToolStripMenuItem.Click += detalleCompraToolStripMenuItem_Click;
             // 
             // menuclientes
             // 
@@ -587,11 +605,24 @@
             menucasa.Text = "Inicio";
             menucasa.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.ForestGreen;
+            label9.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(0, 5);
+            label9.Name = "label9";
+            label9.Size = new Size(256, 24);
+            label9.TabIndex = 12;
+            label9.Text = "Sistema de Agroservicio";
+            // 
             // FrmCompras
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1370, 749);
+            Controls.Add(label9);
             Controls.Add(menu);
             Controls.Add(menutitulo);
             Controls.Add(panel1);
@@ -667,5 +698,8 @@
         private FontAwesome.Sharp.IconMenuItem menureportes;
         private FontAwesome.Sharp.IconMenuItem menuacercade;
         private FontAwesome.Sharp.IconMenuItem menucasa;
+        private ToolStripMenuItem registrarCompraToolStripMenuItem;
+        private ToolStripMenuItem detalleCompraToolStripMenuItem;
+        private Label label9;
     }
 }
