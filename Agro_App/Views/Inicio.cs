@@ -1,3 +1,4 @@
+using Agro_App.Model;
 using Agro_App.Views;
 using FontAwesome.Sharp;
 
@@ -112,6 +113,13 @@ namespace Agro_App
             ReporteDeVentaForm.Show();
 
             this.Hide();
+        }
+
+        private void iconMenuItem1_Click(object sender, EventArgs e)
+        {
+            Login loginForm = new Login(); // Instancia Login
+            loginForm.Show(); // Muestra Login
+            this.Hide(); // Oculta Inicio en lugar de cerrarlo
         }
     }
 }

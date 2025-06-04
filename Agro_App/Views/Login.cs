@@ -22,7 +22,7 @@ namespace Agro_App.Views
 
         private void bntcancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void btningresar_Click(object sender, EventArgs e)

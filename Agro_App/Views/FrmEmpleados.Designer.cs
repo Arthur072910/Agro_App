@@ -49,6 +49,7 @@
             menucasa = new FontAwesome.Sharp.IconMenuItem();
             label9 = new Label();
             panel1 = new Panel();
+            dataGridView1 = new DataGridView();
             panel2 = new Panel();
             btneliminar = new FontAwesome.Sharp.IconButton();
             btneditar = new FontAwesome.Sharp.IconButton();
@@ -70,19 +71,10 @@
             label1 = new Label();
             toolStripMenuItem1 = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
-            dataGridView1 = new DataGridView();
-            IdEmpleado = new DataGridViewTextBoxColumn();
-            Nombre = new DataGridViewTextBoxColumn();
-            Apellido = new DataGridViewTextBoxColumn();
-            Email = new DataGridViewTextBoxColumn();
-            Clave = new DataGridViewTextBoxColumn();
-            IdCargo = new DataGridViewTextBoxColumn();
-            Cargo = new DataGridViewTextBoxColumn();
-            Estado = new DataGridViewTextBoxColumn();
             menu.SuspendLayout();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // menutitulo
@@ -306,6 +298,15 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1902, 702);
             panel1.TabIndex = 4;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(548, 104);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(1248, 577);
+            dataGridView1.TabIndex = 2;
             // 
             // panel2
             // 
@@ -535,74 +536,6 @@
             toolStripMenuItem2.Name = "toolStripMenuItem2";
             toolStripMenuItem2.Size = new Size(83, 26);
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { IdEmpleado, Nombre, Apellido, Email, Clave, IdCargo, Cargo, Estado });
-            dataGridView1.Location = new Point(548, 104);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1248, 577);
-            dataGridView1.TabIndex = 2;
-            // 
-            // IdEmpleado
-            // 
-            IdEmpleado.HeaderText = "IdEmpleado";
-            IdEmpleado.MinimumWidth = 6;
-            IdEmpleado.Name = "IdEmpleado";
-            IdEmpleado.Width = 125;
-            // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.MinimumWidth = 6;
-            Nombre.Name = "Nombre";
-            Nombre.Width = 250;
-            // 
-            // Apellido
-            // 
-            Apellido.HeaderText = "Apellido";
-            Apellido.MinimumWidth = 6;
-            Apellido.Name = "Apellido";
-            Apellido.Width = 250;
-            // 
-            // Email
-            // 
-            Email.HeaderText = "Email";
-            Email.MinimumWidth = 6;
-            Email.Name = "Email";
-            Email.Width = 250;
-            // 
-            // Clave
-            // 
-            Clave.HeaderText = "Clave";
-            Clave.MinimumWidth = 6;
-            Clave.Name = "Clave";
-            Clave.Visible = false;
-            Clave.Width = 125;
-            // 
-            // IdCargo
-            // 
-            IdCargo.HeaderText = "IdCargo";
-            IdCargo.MinimumWidth = 6;
-            IdCargo.Name = "IdCargo";
-            IdCargo.Visible = false;
-            IdCargo.Width = 125;
-            // 
-            // Cargo
-            // 
-            Cargo.HeaderText = "Cargo";
-            Cargo.MinimumWidth = 6;
-            Cargo.Name = "Cargo";
-            Cargo.Width = 125;
-            // 
-            // Estado
-            // 
-            Estado.HeaderText = "Estado";
-            Estado.MinimumWidth = 6;
-            Estado.Name = "Estado";
-            Estado.Width = 125;
-            // 
             // FrmEmpleados
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -619,9 +552,9 @@
             menu.ResumeLayout(false);
             menu.PerformLayout();
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -670,13 +603,5 @@
         private ToolStripMenuItem reporteComprasToolStripMenuItem;
         private ToolStripMenuItem reporteVentasToolStripMenuItem;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn IdEmpleado;
-        private DataGridViewTextBoxColumn Nombre;
-        private DataGridViewTextBoxColumn Apellido;
-        private DataGridViewTextBoxColumn Email;
-        private DataGridViewTextBoxColumn Clave;
-        private DataGridViewTextBoxColumn IdCargo;
-        private DataGridViewTextBoxColumn Cargo;
-        private DataGridViewTextBoxColumn Estado;
     }
 }
