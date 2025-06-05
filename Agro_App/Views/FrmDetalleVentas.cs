@@ -28,7 +28,7 @@ namespace Agro_App.Views
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                con.Open();
+                con.Open(); 
                 adapt = new SqlDataAdapter(
                     "SELECT P.Nombre_Producto, DV.Cantidad, DV.Precio_Unitario, DV.Sub_Total " +
                     "FROM Detalle_ventas DV " +
