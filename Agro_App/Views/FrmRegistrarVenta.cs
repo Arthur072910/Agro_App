@@ -8,16 +8,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
+
 
 namespace Agro_App.Views
 {
     public partial class FrmRegistrarVenta : Form
     {
+        private readonly string connectionString =
+     ConfigurationManager.ConnectionStrings["MiConexion"].ConnectionString;
+        SqlDataAdapter adapt;
         public FrmRegistrarVenta()
         {
             InitializeComponent();
+            obtenerLista();
         }
-
+        private void obtenerLista()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                adapt = new SqlDataAdapter("SELECT * FROM Empleados", con);
+                DataTable dt = new DataTable();
+                adapt.Fill(dt);
+                dataGridView1.DataSource = dt;
+                con.Close();
+            }
+        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 

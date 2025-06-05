@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Agro_App.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,14 +8,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
+
 
 namespace Agro_App.Views
 {
     public partial class FrmDetalleCompra : Form
     {
+        private readonly string connectionString =
+     ConfigurationManager.ConnectionStrings["MiConexion"].ConnectionString;
+        SqlDataAdapter adapt;
         public FrmDetalleCompra()
         {
             InitializeComponent();
+            obtenerLista();
+        }
+        private void obtenerLista()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                adapt = new SqlDataAdapter("SELECT * FROM Empleados", con);
+                DataTable dt = new DataTable();
+                adapt.Fill(dt);
+                dataGridView1.DataSource = dt;
+                con.Close();
+            }
         }
 
 

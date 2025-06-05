@@ -8,16 +8,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Agro_App.Views
 {
     public partial class FrmCompras : Form
     {
+        private readonly string connectionString =
+      ConfigurationManager.ConnectionStrings["MiConexion"].ConnectionString;
+        SqlDataAdapter adapt;
         public FrmCompras()
         {
             InitializeComponent();
+            obtenerLista();
         }
+        private void obtenerLista()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                adapt = new SqlDataAdapter(
+    "SELECT P.Nombre_Producto AS Productos, DC.Precio_Unitario, DC.Cantidad, DC.Sub_Total " +
+    "FROM Detalle_Compra DC " +
+    "INNER JOIN Productos P ON DC.IdProducto = P.IdProducto", con);
 
+                DataTable dt = new DataTable();
+                adapt.Fill(dt);
+                dataGridView1.DataSource = dt;
+                con.Close();
+            }
+        }
         private void submenuregistrarventa_Click(object sender, EventArgs e)
         {
             FrmRegistrarVenta ventasForm = new FrmRegistrarVenta();

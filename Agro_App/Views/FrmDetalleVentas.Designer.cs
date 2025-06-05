@@ -66,11 +66,6 @@
             label13 = new Label();
             iconButton2 = new FontAwesome.Sharp.IconButton();
             label12 = new Label();
-            dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
             groupBox1 = new GroupBox();
             textBox3 = new TextBox();
             textBox2 = new TextBox();
@@ -78,12 +73,13 @@
             textBox1 = new TextBox();
             label3 = new Label();
             label2 = new Label();
+            dataGridView1 = new DataGridView();
             menu.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // sqlCommand1
@@ -218,14 +214,14 @@
             // registrarCompraToolStripMenuItem
             // 
             registrarCompraToolStripMenuItem.Name = "registrarCompraToolStripMenuItem";
-            registrarCompraToolStripMenuItem.Size = new Size(180, 22);
+            registrarCompraToolStripMenuItem.Size = new Size(166, 22);
             registrarCompraToolStripMenuItem.Text = "Registrar Compra";
             registrarCompraToolStripMenuItem.Click += registrarCompraToolStripMenuItem_Click;
             // 
             // detalleCompraToolStripMenuItem
             // 
             detalleCompraToolStripMenuItem.Name = "detalleCompraToolStripMenuItem";
-            detalleCompraToolStripMenuItem.Size = new Size(180, 22);
+            detalleCompraToolStripMenuItem.Size = new Size(166, 22);
             detalleCompraToolStripMenuItem.Text = "Detalle Compra";
             detalleCompraToolStripMenuItem.Click += detalleCompraToolStripMenuItem_Click;
             // 
@@ -303,6 +299,7 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ButtonHighlight;
+            panel2.Controls.Add(dataGridView1);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(iconButton1);
             panel2.Controls.Add(textBox9);
@@ -316,7 +313,6 @@
             panel2.Controls.Add(label13);
             panel2.Controls.Add(iconButton2);
             panel2.Controls.Add(label12);
-            panel2.Controls.Add(dataGridView1);
             panel2.Controls.Add(groupBox1);
             panel2.Location = new Point(141, 29);
             panel2.Name = "panel2";
@@ -489,43 +485,6 @@
             label12.TabIndex = 12;
             label12.Text = "No.Documento:";
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column3, Column4, Column5 });
-            dataGridView1.Location = new Point(29, 265);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(830, 172);
-            dataGridView1.TabIndex = 11;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Producto";
-            Column1.MinimumWidth = 15;
-            Column1.Name = "Column1";
-            Column1.Width = 200;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Precio ";
-            Column3.MinimumWidth = 15;
-            Column3.Name = "Column3";
-            Column3.Width = 200;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Cantidad";
-            Column4.MinimumWidth = 125;
-            Column4.Name = "Column4";
-            Column4.Width = 200;
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Subtotal";
-            Column5.MinimumWidth = 100;
-            Column5.Name = "Column5";
-            Column5.Width = 200;
-            // 
             // groupBox1
             // 
             groupBox1.Controls.Add(textBox3);
@@ -589,6 +548,14 @@
             label2.TabIndex = 0;
             label2.Text = "Fecha: ";
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(93, 255);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(480, 150);
+            dataGridView1.TabIndex = 25;
+            // 
             // FrmDetalleVentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -610,9 +577,9 @@
             panel2.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -645,7 +612,6 @@
         private FontAwesome.Sharp.IconButton iconButton2;
         private TextBox textBox9;
         private Label label12;
-        private DataGridView dataGridView1;
         private GroupBox groupBox1;
         private TextBox textBox1;
         private Label label3;
@@ -662,11 +628,8 @@
         private TextBox textBox7;
         private FontAwesome.Sharp.IconButton iconButton4;
         private Label label7;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
         private ToolStripMenuItem registrarCompraToolStripMenuItem;
         private ToolStripMenuItem detalleCompraToolStripMenuItem;
+        private DataGridView dataGridView1;
     }
 }

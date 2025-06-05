@@ -44,6 +44,8 @@
             menuclientes = new FontAwesome.Sharp.IconMenuItem();
             menuproveedores = new FontAwesome.Sharp.IconMenuItem();
             menureportes = new FontAwesome.Sharp.IconMenuItem();
+            submenureportecompras = new ToolStripMenuItem();
+            submenureporteventas = new ToolStripMenuItem();
             menuacercade = new FontAwesome.Sharp.IconMenuItem();
             menucasa = new FontAwesome.Sharp.IconMenuItem();
             panel1 = new Panel();
@@ -51,11 +53,6 @@
             iconButton2 = new FontAwesome.Sharp.IconButton();
             textBox9 = new TextBox();
             label6 = new Label();
-            dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
             groupBox2 = new GroupBox();
             txtnumerodocumento = new TextBox();
             txtnombreproveedor = new TextBox();
@@ -74,14 +71,13 @@
             iconButton4 = new FontAwesome.Sharp.IconButton();
             label12 = new Label();
             label1 = new Label();
-            submenureportecompras = new ToolStripMenuItem();
-            submenureporteventas = new ToolStripMenuItem();
+            dataGridView1 = new DataGridView();
             menu.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // menutitulo
@@ -257,6 +253,20 @@
             menureportes.Text = "Reportes";
             menureportes.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
+            // submenureportecompras
+            // 
+            submenureportecompras.Name = "submenureportecompras";
+            submenureportecompras.Size = new Size(166, 22);
+            submenureportecompras.Text = "Reporte Compras";
+            submenureportecompras.Click += submenureportecompras_Click;
+            // 
+            // submenureporteventas
+            // 
+            submenureporteventas.Name = "submenureporteventas";
+            submenureporteventas.Size = new Size(166, 22);
+            submenureporteventas.Text = "Reporte Ventas";
+            submenureporteventas.Click += submenureporteventas_Click;
+            // 
             // menuacercade
             // 
             menuacercade.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
@@ -295,10 +305,10 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ButtonHighlight;
+            panel2.Controls.Add(dataGridView1);
             panel2.Controls.Add(iconButton2);
             panel2.Controls.Add(textBox9);
             panel2.Controls.Add(label6);
-            panel2.Controls.Add(dataGridView1);
             panel2.Controls.Add(groupBox2);
             panel2.Controls.Add(groupBox1);
             panel2.Controls.Add(iconButton1);
@@ -341,35 +351,6 @@
             label6.Size = new Size(74, 15);
             label6.TabIndex = 32;
             label6.Text = "Monto Total:";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column3, Column4, Column5 });
-            dataGridView1.Location = new Point(37, 277);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(442, 172);
-            dataGridView1.TabIndex = 30;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Producto";
-            Column1.Name = "Column1";
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Precio Compra";
-            Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Cantidad";
-            Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Subtotal";
-            Column5.Name = "Column5";
             // 
             // groupBox2
             // 
@@ -545,19 +526,13 @@
             label1.Text = "Detalle Compra";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // submenureportecompras
+            // dataGridView1
             // 
-            submenureportecompras.Name = "submenureportecompras";
-            submenureportecompras.Size = new Size(180, 22);
-            submenureportecompras.Text = "Reporte Compras";
-            submenureportecompras.Click += submenureportecompras_Click;
-            // 
-            // submenureporteventas
-            // 
-            submenureporteventas.Name = "submenureporteventas";
-            submenureporteventas.Size = new Size(180, 22);
-            submenureporteventas.Text = "Reporte Ventas";
-            submenureporteventas.Click += submenureporteventas_Click;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(67, 302);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(650, 150);
+            dataGridView1.TabIndex = 34;
             // 
             // FrmDetalleCompra
             // 
@@ -575,11 +550,11 @@
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -624,15 +599,11 @@
         private Label label5;
         private Label label13;
         private TextBox txtnumerodocumento;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
         private TextBox textBox9;
         private Label label6;
         private FontAwesome.Sharp.IconButton iconButton2;
         private ToolStripMenuItem submenureportecompras;
         private ToolStripMenuItem submenureporteventas;
+        private DataGridView dataGridView1;
     }
 }
