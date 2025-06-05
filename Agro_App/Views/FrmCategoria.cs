@@ -126,6 +126,15 @@ namespace Agro_App.Views
             CargarCategorias();
         }
 
+
+
+
+
+
+
+
+
+
         private void DataMantenedorCategorias_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
