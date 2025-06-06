@@ -285,6 +285,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "frmReporteCompras";
             Text = "frmReporteCompras";
+            WindowState = FormWindowState.Maximized;
             menu.ResumeLayout(false);
             menu.PerformLayout();
             ResumeLayout(false);

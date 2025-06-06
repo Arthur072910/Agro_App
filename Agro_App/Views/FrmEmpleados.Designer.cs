@@ -49,18 +49,20 @@
             menucasa = new FontAwesome.Sharp.IconMenuItem();
             label9 = new Label();
             panel1 = new Panel();
+            label10 = new Label();
             dataGridView1 = new DataGridView();
             panel2 = new Panel();
-            btneliminar = new FontAwesome.Sharp.IconButton();
+            txtTelefono = new TextBox();
+            label11 = new Label();
             btneditar = new FontAwesome.Sharp.IconButton();
             btnguardar = new FontAwesome.Sharp.IconButton();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
-            textBox5 = new TextBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            comboEstado = new ComboBox();
+            comboCargo = new ComboBox();
+            txtClave = new TextBox();
+            txtEmail = new TextBox();
+            txtApellido = new TextBox();
+            txtNombre = new TextBox();
+            txtDocumento = new TextBox();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
@@ -291,6 +293,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.Control;
+            panel1.Controls.Add(label10);
             panel1.Controls.Add(dataGridView1);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Fill;
@@ -298,6 +301,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1902, 702);
             panel1.TabIndex = 4;
+            // 
+            // label10
+            // 
+            label10.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.Location = new Point(548, 18);
+            label10.Name = "label10";
+            label10.Size = new Size(1248, 69);
+            label10.TabIndex = 3;
+            label10.Text = "Lista de empleados";
+            label10.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // dataGridView1
             // 
@@ -307,20 +320,22 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(1248, 577);
             dataGridView1.TabIndex = 2;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Controls.Add(btneliminar);
+            panel2.Controls.Add(txtTelefono);
+            panel2.Controls.Add(label11);
             panel2.Controls.Add(btneditar);
             panel2.Controls.Add(btnguardar);
-            panel2.Controls.Add(comboBox2);
-            panel2.Controls.Add(comboBox1);
-            panel2.Controls.Add(textBox5);
-            panel2.Controls.Add(textBox4);
-            panel2.Controls.Add(textBox3);
-            panel2.Controls.Add(textBox2);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(comboEstado);
+            panel2.Controls.Add(comboCargo);
+            panel2.Controls.Add(txtClave);
+            panel2.Controls.Add(txtEmail);
+            panel2.Controls.Add(txtApellido);
+            panel2.Controls.Add(txtNombre);
+            panel2.Controls.Add(txtDocumento);
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label6);
@@ -334,25 +349,22 @@
             panel2.Size = new Size(443, 699);
             panel2.TabIndex = 1;
             // 
-            // btneliminar
+            // txtTelefono
             // 
-            btneliminar.BackColor = Color.Red;
-            btneliminar.Cursor = Cursors.Hand;
-            btneliminar.FlatAppearance.BorderColor = Color.Black;
-            btneliminar.FlatStyle = FlatStyle.Flat;
-            btneliminar.ForeColor = Color.White;
-            btneliminar.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            btneliminar.IconColor = Color.White;
-            btneliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btneliminar.IconSize = 16;
-            btneliminar.Location = new Point(13, 649);
-            btneliminar.Name = "btneliminar";
-            btneliminar.Size = new Size(401, 29);
-            btneliminar.TabIndex = 17;
-            btneliminar.Text = "Eliminar";
-            btneliminar.TextAlign = ContentAlignment.MiddleRight;
-            btneliminar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btneliminar.UseVisualStyleBackColor = false;
+            txtTelefono.Location = new Point(9, 302);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(401, 27);
+            txtTelefono.TabIndex = 18;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.Location = new Point(11, 282);
+            label11.Name = "label11";
+            label11.Size = new Size(71, 17);
+            label11.TabIndex = 17;
+            label11.Text = "Telefono";
             // 
             // btneditar
             // 
@@ -365,7 +377,7 @@
             btneditar.IconColor = Color.White;
             btneditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btneditar.IconSize = 16;
-            btneditar.Location = new Point(13, 613);
+            btneditar.Location = new Point(9, 658);
             btneditar.Name = "btneditar";
             btneditar.Size = new Size(401, 29);
             btneditar.TabIndex = 16;
@@ -373,6 +385,7 @@
             btneditar.TextAlign = ContentAlignment.MiddleRight;
             btneditar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btneditar.UseVisualStyleBackColor = false;
+            btneditar.Click += btneditar_Click;
             // 
             // btnguardar
             // 
@@ -385,7 +398,7 @@
             btnguardar.IconColor = Color.White;
             btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnguardar.IconSize = 16;
-            btnguardar.Location = new Point(13, 579);
+            btnguardar.Location = new Point(9, 623);
             btnguardar.Name = "btnguardar";
             btnguardar.Size = new Size(401, 29);
             btnguardar.TabIndex = 15;
@@ -393,63 +406,64 @@
             btnguardar.TextAlign = ContentAlignment.MiddleRight;
             btnguardar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnguardar.UseVisualStyleBackColor = false;
+            btnguardar.Click += btnguardar_Click;
             // 
-            // comboBox2
+            // comboEstado
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(9, 533);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(401, 28);
-            comboBox2.TabIndex = 14;
+            comboEstado.FormattingEnabled = true;
+            comboEstado.Location = new Point(9, 584);
+            comboEstado.Name = "comboEstado";
+            comboEstado.Size = new Size(401, 28);
+            comboEstado.TabIndex = 14;
             // 
-            // comboBox1
+            // comboCargo
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(9, 459);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(401, 28);
-            comboBox1.TabIndex = 13;
+            comboCargo.FormattingEnabled = true;
+            comboCargo.Location = new Point(9, 510);
+            comboCargo.Name = "comboCargo";
+            comboCargo.Size = new Size(401, 28);
+            comboCargo.TabIndex = 13;
             // 
-            // textBox5
+            // txtClave
             // 
-            textBox5.Location = new Point(9, 385);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(401, 27);
-            textBox5.TabIndex = 12;
+            txtClave.Location = new Point(9, 436);
+            txtClave.Name = "txtClave";
+            txtClave.Size = new Size(401, 27);
+            txtClave.TabIndex = 12;
             // 
-            // textBox4
+            // txtEmail
             // 
-            textBox4.Location = new Point(9, 315);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(401, 27);
-            textBox4.TabIndex = 11;
+            txtEmail.Location = new Point(9, 366);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(401, 27);
+            txtEmail.TabIndex = 11;
             // 
-            // textBox3
+            // txtApellido
             // 
-            textBox3.Location = new Point(9, 243);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(401, 27);
-            textBox3.TabIndex = 10;
+            txtApellido.Location = new Point(9, 243);
+            txtApellido.Name = "txtApellido";
+            txtApellido.Size = new Size(401, 27);
+            txtApellido.TabIndex = 10;
             // 
-            // textBox2
+            // txtNombre
             // 
-            textBox2.Location = new Point(9, 173);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(401, 27);
-            textBox2.TabIndex = 9;
+            txtNombre.Location = new Point(9, 173);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(401, 27);
+            txtNombre.TabIndex = 9;
             // 
-            // textBox1
+            // txtDocumento
             // 
-            textBox1.Location = new Point(9, 101);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(401, 27);
-            textBox1.TabIndex = 8;
+            txtDocumento.Location = new Point(9, 101);
+            txtDocumento.Name = "txtDocumento";
+            txtDocumento.Size = new Size(401, 27);
+            txtDocumento.TabIndex = 8;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(11, 515);
+            label8.Location = new Point(11, 566);
             label8.Name = "label8";
             label8.Size = new Size(58, 17);
             label8.TabIndex = 7;
@@ -459,7 +473,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(9, 439);
+            label7.Location = new Point(9, 490);
             label7.Name = "label7";
             label7.Size = new Size(53, 17);
             label7.TabIndex = 6;
@@ -469,7 +483,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(9, 365);
+            label6.Location = new Point(9, 416);
             label6.Name = "label6";
             label6.Size = new Size(93, 17);
             label6.TabIndex = 5;
@@ -479,7 +493,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(11, 295);
+            label5.Location = new Point(11, 346);
             label5.Name = "label5";
             label5.Size = new Size(60, 17);
             label5.TabIndex = 4;
@@ -575,16 +589,15 @@
         private Label label9;
         private Panel panel1;
         private Panel panel2;
-        private FontAwesome.Sharp.IconButton btneliminar;
         private FontAwesome.Sharp.IconButton btneditar;
         private FontAwesome.Sharp.IconButton btnguardar;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private ComboBox comboEstado;
+        private ComboBox comboCargo;
+        private TextBox txtClave;
+        private TextBox txtEmail;
+        private TextBox txtApellido;
+        private TextBox txtNombre;
+        private TextBox txtDocumento;
         private Label label8;
         private Label label7;
         private Label label6;
@@ -603,5 +616,8 @@
         private ToolStripMenuItem reporteComprasToolStripMenuItem;
         private ToolStripMenuItem reporteVentasToolStripMenuItem;
         private DataGridView dataGridView1;
+        private Label label10;
+        private TextBox txtTelefono;
+        private Label label11;
     }
 }

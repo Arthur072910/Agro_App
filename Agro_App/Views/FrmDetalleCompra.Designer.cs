@@ -50,6 +50,7 @@
             menucasa = new FontAwesome.Sharp.IconMenuItem();
             panel1 = new Panel();
             panel2 = new Panel();
+            dataGridView1 = new DataGridView();
             iconButton2 = new FontAwesome.Sharp.IconButton();
             textBox9 = new TextBox();
             label6 = new Label();
@@ -71,13 +72,12 @@
             iconButton4 = new FontAwesome.Sharp.IconButton();
             label12 = new Label();
             label1 = new Label();
-            dataGridView1 = new DataGridView();
             menu.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // menutitulo
@@ -87,9 +87,9 @@
             menutitulo.ImageScalingSize = new Size(20, 20);
             menutitulo.Location = new Point(0, 0);
             menutitulo.Name = "menutitulo";
-            menutitulo.Padding = new Padding(6, 1, 0, 1);
+            menutitulo.Padding = new Padding(7, 1, 0, 1);
             menutitulo.RightToLeft = RightToLeft.Yes;
-            menutitulo.Size = new Size(1370, 32);
+            menutitulo.Size = new Size(1566, 43);
             menutitulo.TabIndex = 11;
             menutitulo.Text = "menuStrip2";
             // 
@@ -99,9 +99,9 @@
             label9.BackColor = Color.ForestGreen;
             label9.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(0, 5);
+            label9.Location = new Point(0, 7);
             label9.Name = "label9";
-            label9.Size = new Size(256, 24);
+            label9.Size = new Size(335, 32);
             label9.TabIndex = 13;
             label9.Text = "Sistema de Agroservicio";
             // 
@@ -110,11 +110,11 @@
             menu.BackColor = Color.White;
             menu.ImageScalingSize = new Size(20, 20);
             menu.Items.AddRange(new ToolStripItem[] { menuusuarios, menumantenedor, menuventas, menucompras, menuclientes, menuproveedores, menureportes, menuacercade, menucasa });
-            menu.Location = new Point(0, 32);
+            menu.Location = new Point(0, 43);
             menu.Name = "menu";
-            menu.Padding = new Padding(6, 1, 0, 1);
+            menu.Padding = new Padding(7, 1, 0, 1);
             menu.RightToLeft = RightToLeft.No;
-            menu.Size = new Size(1370, 171);
+            menu.Size = new Size(1566, 176);
             menu.TabIndex = 14;
             menu.Text = "menuStrip1";
             // 
@@ -126,7 +126,7 @@
             menuusuarios.IconSize = 150;
             menuusuarios.ImageScaling = ToolStripItemImageScaling.None;
             menuusuarios.Name = "menuusuarios";
-            menuusuarios.Size = new Size(162, 169);
+            menuusuarios.Size = new Size(164, 174);
             menuusuarios.Text = "Usuarios";
             menuusuarios.TextImageRelation = TextImageRelation.ImageAboveText;
             menuusuarios.Click += menuusuarios_Click;
@@ -140,21 +140,21 @@
             menumantenedor.IconSize = 150;
             menumantenedor.ImageScaling = ToolStripItemImageScaling.None;
             menumantenedor.Name = "menumantenedor";
-            menumantenedor.Size = new Size(162, 169);
+            menumantenedor.Size = new Size(164, 174);
             menumantenedor.Text = "Mantenedor";
             menumantenedor.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
             // categoriaToolStripMenuItem
             // 
             categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            categoriaToolStripMenuItem.Size = new Size(128, 22);
+            categoriaToolStripMenuItem.Size = new Size(158, 26);
             categoriaToolStripMenuItem.Text = "Categoria";
             categoriaToolStripMenuItem.Click += categoriaToolStripMenuItem_Click;
             // 
             // productosToolStripMenuItem
             // 
             productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            productosToolStripMenuItem.Size = new Size(128, 22);
+            productosToolStripMenuItem.Size = new Size(158, 26);
             productosToolStripMenuItem.Text = "Productos";
             // 
             // menuventas
@@ -166,7 +166,7 @@
             menuventas.IconSize = 150;
             menuventas.ImageScaling = ToolStripItemImageScaling.None;
             menuventas.Name = "menuventas";
-            menuventas.Size = new Size(162, 169);
+            menuventas.Size = new Size(164, 174);
             menuventas.Text = "Ventas";
             menuventas.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -176,7 +176,7 @@
             submenuregistrarventa.IconColor = Color.Black;
             submenuregistrarventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             submenuregistrarventa.Name = "submenuregistrarventa";
-            submenuregistrarventa.Size = new Size(142, 22);
+            submenuregistrarventa.Size = new Size(181, 26);
             submenuregistrarventa.Text = "Registrar";
             submenuregistrarventa.Click += submenuregistrarventa_Click;
             // 
@@ -186,7 +186,7 @@
             submenuverdetalleventa.IconColor = Color.Black;
             submenuverdetalleventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             submenuverdetalleventa.Name = "submenuverdetalleventa";
-            submenuverdetalleventa.Size = new Size(142, 22);
+            submenuverdetalleventa.Size = new Size(181, 26);
             submenuverdetalleventa.Text = "Detalle Venta";
             submenuverdetalleventa.Click += submenuverdetalleventa_Click;
             // 
@@ -199,21 +199,21 @@
             menucompras.IconSize = 150;
             menucompras.ImageScaling = ToolStripItemImageScaling.None;
             menucompras.Name = "menucompras";
-            menucompras.Size = new Size(162, 169);
+            menucompras.Size = new Size(164, 174);
             menucompras.Text = "Compras";
             menucompras.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
             // registrarCompraToolStripMenuItem
             // 
             registrarCompraToolStripMenuItem.Name = "registrarCompraToolStripMenuItem";
-            registrarCompraToolStripMenuItem.Size = new Size(166, 22);
+            registrarCompraToolStripMenuItem.Size = new Size(208, 26);
             registrarCompraToolStripMenuItem.Text = "Registrar Compra";
             registrarCompraToolStripMenuItem.Click += registrarCompraToolStripMenuItem_Click;
             // 
             // detalleCompraToolStripMenuItem
             // 
             detalleCompraToolStripMenuItem.Name = "detalleCompraToolStripMenuItem";
-            detalleCompraToolStripMenuItem.Size = new Size(166, 22);
+            detalleCompraToolStripMenuItem.Size = new Size(208, 26);
             detalleCompraToolStripMenuItem.Text = "Detalle Compra";
             // 
             // menuclientes
@@ -224,7 +224,7 @@
             menuclientes.IconSize = 150;
             menuclientes.ImageScaling = ToolStripItemImageScaling.None;
             menuclientes.Name = "menuclientes";
-            menuclientes.Size = new Size(162, 169);
+            menuclientes.Size = new Size(164, 174);
             menuclientes.Text = "Clientes";
             menuclientes.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -236,7 +236,7 @@
             menuproveedores.IconSize = 150;
             menuproveedores.ImageScaling = ToolStripItemImageScaling.None;
             menuproveedores.Name = "menuproveedores";
-            menuproveedores.Size = new Size(162, 169);
+            menuproveedores.Size = new Size(164, 174);
             menuproveedores.Text = "Proveedores";
             menuproveedores.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -249,21 +249,21 @@
             menureportes.IconSize = 150;
             menureportes.ImageScaling = ToolStripItemImageScaling.None;
             menureportes.Name = "menureportes";
-            menureportes.Size = new Size(162, 169);
+            menureportes.Size = new Size(164, 174);
             menureportes.Text = "Reportes";
             menureportes.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
             // submenureportecompras
             // 
             submenureportecompras.Name = "submenureportecompras";
-            submenureportecompras.Size = new Size(166, 22);
+            submenureportecompras.Size = new Size(208, 26);
             submenureportecompras.Text = "Reporte Compras";
             submenureportecompras.Click += submenureportecompras_Click;
             // 
             // submenureporteventas
             // 
             submenureporteventas.Name = "submenureporteventas";
-            submenureporteventas.Size = new Size(166, 22);
+            submenureporteventas.Size = new Size(208, 26);
             submenureporteventas.Text = "Reporte Ventas";
             submenureporteventas.Click += submenureporteventas_Click;
             // 
@@ -275,7 +275,7 @@
             menuacercade.IconSize = 150;
             menuacercade.ImageScaling = ToolStripItemImageScaling.None;
             menuacercade.Name = "menuacercade";
-            menuacercade.Size = new Size(162, 169);
+            menuacercade.Size = new Size(164, 174);
             menuacercade.Text = "Acerca de ";
             menuacercade.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -287,7 +287,7 @@
             menucasa.IconSize = 150;
             menucasa.ImageScaling = ToolStripItemImageScaling.None;
             menucasa.Name = "menucasa";
-            menucasa.Size = new Size(162, 169);
+            menucasa.Size = new Size(164, 174);
             menucasa.Text = "Inicio";
             menucasa.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -296,10 +296,9 @@
             panel1.BackColor = Color.Green;
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 203);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Location = new Point(0, 219);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1370, 546);
+            panel1.Size = new Size(1566, 780);
             panel1.TabIndex = 15;
             // 
             // panel2
@@ -316,10 +315,21 @@
             panel2.Controls.Add(iconButton4);
             panel2.Controls.Add(label12);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(187, 30);
+            panel2.Location = new Point(214, 40);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(809, 504);
+            panel2.Size = new Size(925, 672);
             panel2.TabIndex = 1;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(77, 403);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(743, 200);
+            dataGridView1.TabIndex = 34;
             // 
             // iconButton2
             // 
@@ -328,9 +338,10 @@
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton2.IconSize = 20;
             iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton2.Location = new Point(650, 463);
+            iconButton2.Location = new Point(743, 617);
+            iconButton2.Margin = new Padding(3, 4, 3, 4);
             iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(108, 28);
+            iconButton2.Size = new Size(123, 37);
             iconButton2.TabIndex = 33;
             iconButton2.Text = "Descargar PDF";
             iconButton2.TextAlign = ContentAlignment.MiddleRight;
@@ -338,17 +349,18 @@
             // 
             // textBox9
             // 
-            textBox9.Location = new Point(136, 467);
+            textBox9.Location = new Point(155, 623);
+            textBox9.Margin = new Padding(3, 4, 3, 4);
             textBox9.Name = "textBox9";
-            textBox9.Size = new Size(98, 23);
+            textBox9.Size = new Size(111, 27);
             textBox9.TabIndex = 31;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(38, 472);
+            label6.Location = new Point(43, 629);
             label6.Name = "label6";
-            label6.Size = new Size(74, 15);
+            label6.Size = new Size(93, 20);
             label6.TabIndex = 32;
             label6.Text = "Monto Total:";
             // 
@@ -359,49 +371,54 @@
             groupBox2.Controls.Add(txtdocproveedor);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(label13);
-            groupBox2.Location = new Point(37, 181);
+            groupBox2.Location = new Point(42, 241);
+            groupBox2.Margin = new Padding(3, 4, 3, 4);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(699, 90);
+            groupBox2.Padding = new Padding(3, 4, 3, 4);
+            groupBox2.Size = new Size(799, 120);
             groupBox2.TabIndex = 29;
             groupBox2.TabStop = false;
             groupBox2.Text = "Información Poveedor";
             // 
             // txtnumerodocumento
             // 
-            txtnumerodocumento.Location = new Point(508, 48);
+            txtnumerodocumento.Location = new Point(581, 64);
+            txtnumerodocumento.Margin = new Padding(3, 4, 3, 4);
             txtnumerodocumento.Name = "txtnumerodocumento";
-            txtnumerodocumento.Size = new Size(138, 23);
+            txtnumerodocumento.Size = new Size(157, 27);
             txtnumerodocumento.TabIndex = 27;
             // 
             // txtnombreproveedor
             // 
-            txtnombreproveedor.Location = new Point(179, 48);
+            txtnombreproveedor.Location = new Point(205, 64);
+            txtnombreproveedor.Margin = new Padding(3, 4, 3, 4);
             txtnombreproveedor.Name = "txtnombreproveedor";
-            txtnombreproveedor.Size = new Size(189, 23);
+            txtnombreproveedor.Size = new Size(215, 27);
             txtnombreproveedor.TabIndex = 4;
             // 
             // txtdocproveedor
             // 
-            txtdocproveedor.Location = new Point(19, 49);
+            txtdocproveedor.Location = new Point(22, 65);
+            txtdocproveedor.Margin = new Padding(3, 4, 3, 4);
             txtdocproveedor.Name = "txtdocproveedor";
-            txtdocproveedor.Size = new Size(100, 23);
+            txtdocproveedor.Size = new Size(114, 27);
             txtdocproveedor.TabIndex = 3;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(176, 19);
+            label5.Location = new Point(201, 25);
             label5.Name = "label5";
-            label5.Size = new Size(76, 15);
+            label5.Size = new Size(97, 20);
             label5.TabIndex = 1;
             label5.Text = "Razón Social:";
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(19, 19);
+            label13.Location = new Point(22, 25);
             label13.Name = "label13";
-            label13.Size = new Size(123, 15);
+            label13.Size = new Size(152, 20);
             label13.TabIndex = 0;
             label13.Text = "Número Documento: ";
             // 
@@ -413,59 +430,64 @@
             groupBox1.Controls.Add(txtfecha);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(37, 76);
+            groupBox1.Location = new Point(42, 101);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(699, 90);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(799, 120);
             groupBox1.TabIndex = 28;
             groupBox1.TabStop = false;
             groupBox1.Text = "Información Compra";
             // 
             // txtusuario
             // 
-            txtusuario.Location = new Point(393, 49);
+            txtusuario.Location = new Point(449, 65);
+            txtusuario.Margin = new Padding(3, 4, 3, 4);
             txtusuario.Name = "txtusuario";
-            txtusuario.Size = new Size(124, 23);
+            txtusuario.Size = new Size(141, 27);
             txtusuario.TabIndex = 6;
             txtusuario.TextChanged += txtusuario_TextChanged;
             // 
             // txttipodocumento
             // 
-            txttipodocumento.Location = new Point(200, 49);
+            txttipodocumento.Location = new Point(229, 65);
+            txttipodocumento.Margin = new Padding(3, 4, 3, 4);
             txttipodocumento.Name = "txttipodocumento";
-            txttipodocumento.Size = new Size(145, 23);
+            txttipodocumento.Size = new Size(165, 27);
             txttipodocumento.TabIndex = 5;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(430, 19);
+            label4.Location = new Point(491, 25);
             label4.Name = "label4";
-            label4.Size = new Size(50, 15);
+            label4.Size = new Size(62, 20);
             label4.TabIndex = 4;
             label4.Text = "Usuario:";
             // 
             // txtfecha
             // 
-            txtfecha.Location = new Point(31, 49);
+            txtfecha.Location = new Point(35, 65);
+            txtfecha.Margin = new Padding(3, 4, 3, 4);
             txtfecha.Name = "txtfecha";
-            txtfecha.Size = new Size(121, 23);
+            txtfecha.Size = new Size(138, 27);
             txtfecha.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(200, 19);
+            label3.Location = new Point(229, 25);
             label3.Name = "label3";
-            label3.Size = new Size(99, 15);
+            label3.Size = new Size(124, 20);
             label3.TabIndex = 1;
             label3.Text = "Tipo Documento:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(31, 19);
+            label2.Location = new Point(35, 25);
             label2.Name = "label2";
-            label2.Size = new Size(44, 15);
+            label2.Size = new Size(54, 20);
             label2.TabIndex = 0;
             label2.Text = "Fecha: ";
             // 
@@ -476,9 +498,10 @@
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 20;
             iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton1.Location = new Point(666, 30);
+            iconButton1.Location = new Point(761, 40);
+            iconButton1.Margin = new Padding(3, 4, 3, 4);
             iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(70, 23);
+            iconButton1.Size = new Size(80, 31);
             iconButton1.TabIndex = 27;
             iconButton1.Text = "Limpiar";
             iconButton1.TextAlign = ContentAlignment.MiddleRight;
@@ -486,9 +509,10 @@
             // 
             // txtbusqueda
             // 
-            txtbusqueda.Location = new Point(416, 31);
+            txtbusqueda.Location = new Point(475, 41);
+            txtbusqueda.Margin = new Padding(3, 4, 3, 4);
             txtbusqueda.Name = "txtbusqueda";
-            txtbusqueda.Size = new Size(138, 23);
+            txtbusqueda.Size = new Size(157, 27);
             txtbusqueda.TabIndex = 26;
             // 
             // iconButton4
@@ -498,9 +522,10 @@
             iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton4.IconSize = 20;
             iconButton4.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton4.Location = new Point(577, 30);
+            iconButton4.Location = new Point(659, 40);
+            iconButton4.Margin = new Padding(3, 4, 3, 4);
             iconButton4.Name = "iconButton4";
-            iconButton4.Size = new Size(70, 23);
+            iconButton4.Size = new Size(80, 31);
             iconButton4.TabIndex = 25;
             iconButton4.Text = "Buscar ";
             iconButton4.TextAlign = ContentAlignment.MiddleRight;
@@ -509,9 +534,9 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(318, 34);
+            label12.Location = new Point(363, 45);
             label12.Name = "label12";
-            label12.Size = new Size(92, 15);
+            label12.Size = new Size(113, 20);
             label12.TabIndex = 24;
             label12.Text = "No.Documento:";
             // 
@@ -521,40 +546,34 @@
             label1.Font = new Font("Arial Rounded MT Bold", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(259, 37);
+            label1.Size = new Size(324, 46);
             label1.TabIndex = 19;
             label1.Text = "Detalle Compra";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(67, 302);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(650, 150);
-            dataGridView1.TabIndex = 34;
-            // 
             // FrmDetalleCompra
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1370, 749);
+            ClientSize = new Size(1566, 999);
             Controls.Add(panel1);
             Controls.Add(menu);
             Controls.Add(label9);
             Controls.Add(menutitulo);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmDetalleCompra";
             Text = "FrmDetalleCompra";
+            WindowState = FormWindowState.Maximized;
             menu.ResumeLayout(false);
             menu.PerformLayout();
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
