@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Globalization;
 
 
 namespace Agro_App.Views
@@ -29,13 +30,23 @@ namespace Agro_App.Views
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                adapt = new SqlDataAdapter("SELECT * FROM Empleados", con);
+                string query = @"
+            SELECT 
+                P.Nombre_Producto AS Productos,
+                DC.Precio_Unitario,
+                DC.Cantidad,
+                DC.Sub_Total,
+                DC.FechaRegistro
+            FROM Detalle_Compra DC
+            INNER JOIN Productos P ON DC.IdProducto = P.IdProducto";
+
+                adapt = new SqlDataAdapter(query, con);
                 DataTable dt = new DataTable();
                 adapt.Fill(dt);
                 dataGridView1.DataSource = dt;
-                con.Close();
             }
         }
+
 
 
 
@@ -95,5 +106,116 @@ namespace Agro_App.Views
 
             this.Hide();
         }
+
+        private void txtpreciounitario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtfecharegistro_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmDetalleCompra_Load(object sender, EventArgs e)
+        {
+            lblFechaRegistro.Text = DateTime.Now.ToString("dd/MM/yyyy");
+        }
+
+        private int idCompra;
+
+        public FrmDetalleCompra(int idCompra)
+        {
+            InitializeComponent();
+            this.idCompra = idCompra;
+            obtenerLista();
+        }
+
+
+        private void btnagregar_Click(object sender, EventArgs e)
+        {
+            // Validar campos vacíos
+            if (string.IsNullOrWhiteSpace(txtproducto.Text) ||
+                string.IsNullOrWhiteSpace(txtcantidad.Text) ||
+                string.IsNullOrWhiteSpace(txtpreciounitario.Text))
+            {
+                MessageBox.Show("Por favor completa todos los campos.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Variables para almacenar valores convertidos
+            int cantidad;
+            decimal precioUnitario;
+            int idProducto;
+
+            // Mostrar el texto ingresado en precio unitario (para debug)
+            string precioTexto = txtpreciounitario.Text.Trim();
+            MessageBox.Show($"Precio ingresado: '{precioTexto}'", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Intentar parsear los valores con configuración regional actual
+            bool cantidadValida = int.TryParse(txtcantidad.Text, out cantidad);
+            bool productoValido = int.TryParse(txtproducto.Text, out idProducto);
+            bool precioValido = decimal.TryParse(precioTexto, System.Globalization.NumberStyles.Number, System.Globalization.CultureInfo.CurrentCulture, out precioUnitario);
+
+            if (!cantidadValida || !productoValido || !precioValido)
+            {
+                MessageBox.Show("Cantidad, producto o precio unitario tienen formato incorrecto. Usa números válidos, y usa punto o coma según configuración regional.", "Error de datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Validar rangos, opcional
+            if (cantidad <= 0)
+            {
+                MessageBox.Show("Cantidad debe ser mayor que cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (precioUnitario <= 0 || precioUnitario > 999.99m)
+            {
+                MessageBox.Show("Precio unitario debe ser mayor que cero y menor a 999.99.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Calcular subtotal
+            decimal subTotal = cantidad * precioUnitario;
+
+            // Insertar en la base de datos
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = @"INSERT INTO Detalle_Compra 
+                         (IdCompra, IdProducto, Cantidad, Precio_Unitario, Sub_Total)
+                         VALUES (@IdCompra, @IdProducto, @Cantidad, @Precio_Unitario, @Sub_Total)";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdCompra", idCompra);
+                    cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                    cmd.Parameters.AddWithValue("@Cantidad", cantidad);
+                    cmd.Parameters.AddWithValue("@Precio_Unitario", precioUnitario);
+                    cmd.Parameters.AddWithValue("@Sub_Total", subTotal);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+            // Mensaje éxito y actualizar tabla
+            MessageBox.Show("Detalle agregado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            obtenerLista();
+
+            // Limpiar campos
+            txtproducto.Clear();
+            txtcantidad.Clear();
+            txpreciounitario.Clear();
+        }
+
+
+
     }
 }

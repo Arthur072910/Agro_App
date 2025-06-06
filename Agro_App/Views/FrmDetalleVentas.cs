@@ -26,7 +26,7 @@ namespace Agro_App.Views
         }
         private void obtenerLista()
         {
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(connectionString)) 
             {
                 con.Open(); 
                 adapt = new SqlDataAdapter(

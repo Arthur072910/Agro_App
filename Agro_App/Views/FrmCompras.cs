@@ -28,11 +28,7 @@ namespace Agro_App.Views
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                adapt = new SqlDataAdapter(
-    "SELECT P.Nombre_Producto AS Productos, DC.Precio_Unitario, DC.Cantidad, DC.Sub_Total " +
-    "FROM Detalle_Compra DC " +
-    "INNER JOIN Productos P ON DC.IdProducto = P.IdProducto", con);
-
+                adapt = new SqlDataAdapter("SELECT  IdProveedor, IdEmpleado, Fecha_Compro, Total_Compra, TipoDocumento,NumeroDocumento FROM Compras", con);
                 DataTable dt = new DataTable();
                 adapt.Fill(dt);
                 dataGridView1.DataSource = dt;
@@ -112,6 +108,67 @@ namespace Agro_App.Views
             Inicio inicioForm = new Inicio(empleado); // Pass the required parameter
             inicioForm.Show();
             this.Close();
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(txtidproveedor.Text) ||
+                string.IsNullOrWhiteSpace(txtempleado.Text) ||
+                string.IsNullOrWhiteSpace(txttipodocumento.Text) ||
+                string.IsNullOrWhiteSpace(txtnumerodocumento.Text) ||
+                string.IsNullOrWhiteSpace(txttotalcompra.Text))
+            {
+                MessageBox.Show("Por favor completa todos los campos.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!int.TryParse(txtidproveedor.Text, out int idProveedor) ||
+                !int.TryParse(txtempleado.Text, out int idEmpleado) ||
+                !decimal.TryParse(txttotalcompra.Text, out decimal totalCompra))
+            {
+                MessageBox.Show("Revisa los campos numéricos (proveedor, empleado, total).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = @"INSERT INTO Compras 
+            (IdProveedor, IdEmpleado, Fecha_Compro, Total_Compra, TipoDocumento, NumeroDocumento) 
+            VALUES (@IdProveedor, @IdEmpleado, GETDATE(), @Total_Compra, @TipoDocumento, @NumeroDocumento)";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdProveedor", idProveedor);
+                    cmd.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
+                    cmd.Parameters.AddWithValue("@Total_Compra", totalCompra);
+                    cmd.Parameters.AddWithValue("@TipoDocumento", txttipodocumento.Text);
+                    cmd.Parameters.AddWithValue("@NumeroDocumento", txtnumerodocumento.Text);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+            MessageBox.Show("Compra registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            obtenerLista(); // Recarga el DataGridView
+
+            // Limpiar campos
+            txtidproveedor.Clear();
+            txtempleado.Clear();
+            txttipodocumento.Clear();
+            txtnumerodocumento.Clear();
+            txttotalcompra.Clear();
+
+
+        }
+
+        private void FrmCompras_Load(object sender, EventArgs e)
+        {
+            lblfechacompra.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
     }
 }
