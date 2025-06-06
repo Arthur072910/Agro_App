@@ -70,7 +70,10 @@ namespace Agro_App
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FrmProductos n3 = new FrmProductos();
+            n3.Show();
+            this.Hide();
+        
         }
 
         private void registrarCompraToolStripMenuItem_Click(object sender, EventArgs e)

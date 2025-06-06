@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             menutitulo = new MenuStrip();
             label2 = new Label();
             menu = new MenuStrip();
@@ -50,25 +52,17 @@
             menucasa = new FontAwesome.Sharp.IconMenuItem();
             tabPage1 = new TabPage();
             DataListadoCategorias = new DataGridView();
-            IdCategoria = new DataGridViewTextBoxColumn();
-            Nombre_Categoria = new DataGridViewTextBoxColumn();
-            Estado = new DataGridViewTextBoxColumn();
-            FechaRegistro = new DataGridViewTextBoxColumn();
             tabControl1 = new TabControl();
             tabPage2 = new TabPage();
             DataMantenedorCategorias = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            NombreCategoria = new DataGridViewTextBoxColumn();
-            stado = new DataGridViewTextBoxColumn();
-            Fecha = new DataGridViewTextBoxColumn();
             label1 = new Label();
             txtNombre = new TextBox();
             btnEditar = new Button();
             btnAgregar = new Button();
             tabPage3 = new TabPage();
-            dataGridView1 = new DataGridView();
-            button1 = new Button();
             button2 = new Button();
+            button1 = new Button();
+            dataGridView1 = new DataGridView();
             menu.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataListadoCategorias).BeginInit();
@@ -288,6 +282,7 @@
             menucasa.Size = new Size(166, 179);
             menucasa.Text = "Inicio";
             menucasa.TextImageRelation = TextImageRelation.ImageAboveText;
+            menucasa.Click += menucasa_Click;
             // 
             // tabPage1
             // 
@@ -304,48 +299,28 @@
             // DataListadoCategorias
             // 
             DataListadoCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataListadoCategorias.Columns.AddRange(new DataGridViewColumn[] { IdCategoria, Nombre_Categoria, Estado, FechaRegistro });
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.Control;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            DataListadoCategorias.DefaultCellStyle = dataGridViewCellStyle5;
             DataListadoCategorias.Location = new Point(191, 19);
             DataListadoCategorias.Margin = new Padding(2, 4, 2, 4);
             DataListadoCategorias.Name = "DataListadoCategorias";
             DataListadoCategorias.RowHeadersWidth = 62;
             DataListadoCategorias.Size = new Size(664, 410);
             DataListadoCategorias.TabIndex = 0;
-            // 
-            // IdCategoria
-            // 
-            IdCategoria.HeaderText = "ID";
-            IdCategoria.MinimumWidth = 8;
-            IdCategoria.Name = "IdCategoria";
-            IdCategoria.Width = 50;
-            // 
-            // Nombre_Categoria
-            // 
-            Nombre_Categoria.HeaderText = "Nombre";
-            Nombre_Categoria.MinimumWidth = 8;
-            Nombre_Categoria.Name = "Nombre_Categoria";
-            Nombre_Categoria.Width = 200;
-            // 
-            // Estado
-            // 
-            Estado.HeaderText = "Estado";
-            Estado.MinimumWidth = 8;
-            Estado.Name = "Estado";
-            Estado.Width = 200;
-            // 
-            // FechaRegistro
-            // 
-            FechaRegistro.HeaderText = "Fecha Registro";
-            FechaRegistro.MinimumWidth = 8;
-            FechaRegistro.Name = "FechaRegistro";
-            FechaRegistro.Width = 150;
+            DataListadoCategorias.CellContentClick += DataListadoCategorias_CellContentClick;
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
-            tabControl1.Location = new Point(334, 439);
+            tabControl1.Location = new Point(562, 499);
             tabControl1.Margin = new Padding(2, 4, 2, 4);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -370,8 +345,17 @@
             // 
             // DataMantenedorCategorias
             // 
+            DataMantenedorCategorias.BackgroundColor = SystemColors.Control;
             DataMantenedorCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataMantenedorCategorias.Columns.AddRange(new DataGridViewColumn[] { ID, NombreCategoria, stado, Fecha });
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.Control;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            DataMantenedorCategorias.DefaultCellStyle = dataGridViewCellStyle6;
+            DataMantenedorCategorias.GridColor = SystemColors.MenuText;
             DataMantenedorCategorias.Location = new Point(282, 45);
             DataMantenedorCategorias.Margin = new Padding(2, 4, 2, 4);
             DataMantenedorCategorias.Name = "DataMantenedorCategorias";
@@ -379,34 +363,6 @@
             DataMantenedorCategorias.Size = new Size(664, 374);
             DataMantenedorCategorias.TabIndex = 5;
             DataMantenedorCategorias.CellContentClick += DataMantenedorCategorias_CellContentClick;
-            // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 8;
-            ID.Name = "ID";
-            ID.Width = 150;
-            // 
-            // NombreCategoria
-            // 
-            NombreCategoria.HeaderText = "Nombre Categoria";
-            NombreCategoria.MinimumWidth = 8;
-            NombreCategoria.Name = "NombreCategoria";
-            NombreCategoria.Width = 150;
-            // 
-            // stado
-            // 
-            stado.HeaderText = "Estado";
-            stado.MinimumWidth = 8;
-            stado.Name = "stado";
-            stado.Width = 150;
-            // 
-            // Fecha
-            // 
-            Fecha.HeaderText = "Fecha Registro";
-            Fecha.MinimumWidth = 8;
-            Fecha.Name = "Fecha";
-            Fecha.Width = 150;
             // 
             // label1
             // 
@@ -431,7 +387,7 @@
             // btnEditar
             // 
             btnEditar.ForeColor = SystemColors.ActiveCaptionText;
-            btnEditar.Location = new Point(68, 186);
+            btnEditar.Location = new Point(68, 260);
             btnEditar.Margin = new Padding(2, 4, 2, 4);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(111, 34);
@@ -443,7 +399,7 @@
             // btnAgregar
             // 
             btnAgregar.ForeColor = SystemColors.ActiveCaptionText;
-            btnAgregar.Location = new Point(68, 146);
+            btnAgregar.Location = new Point(68, 168);
             btnAgregar.Margin = new Padding(2, 4, 2, 4);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(111, 34);
@@ -465,14 +421,16 @@
             tabPage3.Text = "Manejo de actividad";
             tabPage3.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // button2
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(293, 72);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(633, 323);
-            dataGridView1.TabIndex = 0;
+            button2.ForeColor = SystemColors.ActiveCaptionText;
+            button2.Location = new Point(91, 254);
+            button2.Name = "button2";
+            button2.Size = new Size(112, 34);
+            button2.TabIndex = 2;
+            button2.Text = "Desactivar";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -483,21 +441,23 @@
             button1.TabIndex = 1;
             button1.Text = "Activar";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
             // 
-            // button2
+            // dataGridView1
             // 
-            button2.ForeColor = SystemColors.ActiveCaptionText;
-            button2.Location = new Point(91, 254);
-            button2.Name = "button2";
-            button2.Size = new Size(112, 34);
-            button2.TabIndex = 2;
-            button2.Text = "Desactivar";
-            button2.UseVisualStyleBackColor = true;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(293, 72);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(633, 323);
+            dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // FrmCategoria
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.ForestGreen;
             ClientSize = new Size(1958, 1249);
             Controls.Add(tabControl1);
             Controls.Add(menu);
@@ -547,14 +507,6 @@
         private TextBox txtNombre;
         private Button btnEditar;
         private Button btnAgregar;
-        private DataGridViewTextBoxColumn IdCategoria;
-        private DataGridViewTextBoxColumn Nombre_Categoria;
-        private DataGridViewTextBoxColumn Estado;
-        private DataGridViewTextBoxColumn FechaRegistro;
-        private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn NombreCategoria;
-        private DataGridViewTextBoxColumn stado;
-        private DataGridViewTextBoxColumn Fecha;
         private ToolStripMenuItem registrarCompraToolStripMenuItem;
         private ToolStripMenuItem detalleCompraToolStripMenuItem;
         private ToolStripMenuItem reporteComprasToolStripMenuItem;

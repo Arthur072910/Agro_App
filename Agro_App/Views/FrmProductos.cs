@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Agro_App.Views
 {
-    public partial class FrmProductos: Form
+    public partial class FrmProductos : Form
     {
         public FrmProductos()
         {
