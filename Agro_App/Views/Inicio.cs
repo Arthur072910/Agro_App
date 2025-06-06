@@ -30,17 +30,7 @@ namespace Agro_App
 
         private void menumantenedor_Click(object sender, EventArgs e)
         {
-            ConexionDB connection = new ConexionDB();
-            var conn = connection.GetConnection();
 
-            if (conn != null && conn.State == System.Data.ConnectionState.Open)
-            {
-                MessageBox.Show("Conexión exitosa a la base de datos.");
-            }
-            else
-            {
-                MessageBox.Show("Error al conectar a la base de datos.");
-            }
         }
 
         private void menuventas_Click(object sender, EventArgs e)
@@ -120,6 +110,18 @@ namespace Agro_App
             Login loginForm = new Login(); // Instancia Login
             loginForm.Show(); // Muestra Login
             this.Hide(); // Oculta Inicio en lugar de cerrarlo
+        }
+
+        private void menuclientes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuproveedores_Click(object sender, EventArgs e)
+        {
+            FrmProveedores proveedoresForm = new FrmProveedores();
+            proveedoresForm.Show();
+            this.Hide();
         }
     }
 }

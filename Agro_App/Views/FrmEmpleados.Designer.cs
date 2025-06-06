@@ -116,6 +116,7 @@
             menuusuarios.Size = new Size(164, 174);
             menuusuarios.Text = "Usuarios";
             menuusuarios.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuusuarios.Click += menuusuarios_Click;
             // 
             // menumantenedor
             // 

@@ -152,98 +152,59 @@ namespace Agro_App.Views
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
-            if (comboCargo.SelectedItem == null || comboEstado.SelectedItem == null)
-            {
-                MessageBox.Show("Debe seleccionar un cargo y un estado.");
-                return;
-            }
-
-            int idCargo = Convert.ToInt32(comboCargo.SelectedValue);
-            bool estado = comboEstado.SelectedItem.ToString() == "Activo";
-
-            Empleados nuevoEmpleado = new Empleados()
-            {
-                Documento = txtDocumento.Text,
-                Nombre = txtNombre.Text,
-                Apellido = txtApellido.Text,
-                Telefono = txtTelefono.Text,
-                Email = txtEmail.Text,
-                Clave = txtClave.Text,
-                IdCargo = idCargo,
-                Estado = estado,
-                FechaRegistro = DateTime.Now
-            };
-
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = @"INSERT INTO Empleados 
-                         (Documento, Nombre, Apellido, Telefono, Email, Clave, IdCargo, Estado, FechaRegistro)
-                         VALUES 
-                         (@Documento, @Nombre, @Apellido, @Telefono, @Email, @Clave, @IdCargo, @Estado, @FechaRegistro)";
-                using (SqlCommand cmd = new SqlCommand(query, con))
+                using (SqlCommand cmd = new SqlCommand("sp_InsertarEmpleado", con))
                 {
-                    cmd.Parameters.AddWithValue("@Documento", nuevoEmpleado.Documento);
-                    cmd.Parameters.AddWithValue("@Nombre", nuevoEmpleado.Nombre);
-                    cmd.Parameters.AddWithValue("@Apellido", nuevoEmpleado.Apellido);
-                    cmd.Parameters.AddWithValue("@Telefono", nuevoEmpleado.Telefono);
-                    cmd.Parameters.AddWithValue("@Email", nuevoEmpleado.Email);
-                    cmd.Parameters.AddWithValue("@Clave", nuevoEmpleado.Clave);
-                    cmd.Parameters.AddWithValue("@IdCargo", nuevoEmpleado.IdCargo);
-                    cmd.Parameters.AddWithValue("@Estado", nuevoEmpleado.Estado);
-                    cmd.Parameters.AddWithValue("@FechaRegistro", nuevoEmpleado.FechaRegistro);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
+                    cmd.Parameters.AddWithValue("@Apellido", txtApellido.Text);
+                    cmd.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
+                    cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
+                    cmd.Parameters.AddWithValue("@Clave", txtClave.Text);
+                    cmd.Parameters.AddWithValue("@IdCargo", comboCargo.SelectedValue);
+                    cmd.Parameters.AddWithValue("@Estado", comboEstado.SelectedIndex == 0); // true si activo
+                    cmd.Parameters.AddWithValue("@Documento", txtDocumento.Text);
 
                     con.Open();
                     cmd.ExecuteNonQuery();
                 }
             }
-
-            MessageBox.Show("Empleado guardado correctamente.");
-            obtenerLista();
+            obtenerLista(); // refrescar tabla
+            MessageBox.Show("Empleado guardado correctamente");
         }
 
         private void btneditar_Click(object sender, EventArgs e)
         {
             if (idEmpleadoSeleccionado == null)
             {
-                MessageBox.Show("Seleccione un empleado de la tabla para editar.");
+                MessageBox.Show("Seleccione un empleado para editar");
                 return;
             }
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                con.Open();
-
-                string query = @"
-            UPDATE Empleados
-            SET Nombre = @Nombre,
-                Apellido = @Apellido,
-                Telefono = @Telefono,
-                Email = @Email,
-                Clave = @Clave,
-                IdCargo = @IdCargo,
-                Estado = @Estado,
-                Documento = @Documento
-            WHERE IdEmpleado = @IdEmpleado";
-
-                using (SqlCommand cmd = new SqlCommand(query, con))
+                using (SqlCommand cmd = new SqlCommand("sp_ActualizarEmpleado", con))
                 {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@IdEmpleado", idEmpleadoSeleccionado);
                     cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
                     cmd.Parameters.AddWithValue("@Apellido", txtApellido.Text);
                     cmd.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
                     cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@Clave", "1234"); // puedes omitir si no quieres cambiarla
+                    cmd.Parameters.AddWithValue("@Clave", txtClave.Text);
                     cmd.Parameters.AddWithValue("@IdCargo", comboCargo.SelectedValue);
-                    cmd.Parameters.AddWithValue("@Estado", comboEstado.SelectedItem.ToString() == "Activo");
+                    cmd.Parameters.AddWithValue("@Estado", comboEstado.SelectedIndex == 0);
                     cmd.Parameters.AddWithValue("@Documento", txtDocumento.Text);
-                    cmd.Parameters.AddWithValue("@IdEmpleado", idEmpleadoSeleccionado);
 
+                    con.Open();
                     cmd.ExecuteNonQuery();
                 }
-
-                MessageBox.Show("Empleado actualizado correctamente.");
-                obtenerLista(); // Actualizar la tabla
-                limpiarCampos();
             }
+            obtenerLista();
+            MessageBox.Show("Empleado actualizado correctamente");
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -281,5 +242,9 @@ namespace Agro_App.Views
             idEmpleadoSeleccionado = null;
         }
 
+        private void menuusuarios_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -52,11 +52,11 @@
             btneliminar = new FontAwesome.Sharp.IconButton();
             btneditar = new FontAwesome.Sharp.IconButton();
             btnguardar = new FontAwesome.Sharp.IconButton();
-            comboBox2 = new ComboBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            comboEstado = new ComboBox();
+            txtTelefono = new TextBox();
+            txtCorreo = new TextBox();
+            txtRazonSocial = new TextBox();
+            txtDocumento = new TextBox();
             label8 = new Label();
             label5 = new Label();
             label4 = new Label();
@@ -65,6 +65,8 @@
             label1 = new Label();
             label10 = new Label();
             dataGridView1 = new DataGridView();
+            txtNombreEncargado = new TextBox();
+            label6 = new Label();
             menu.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -119,6 +121,7 @@
             menuusuarios.Size = new Size(164, 174);
             menuusuarios.Text = "Usuarios";
             menuusuarios.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuusuarios.Click += menuusuarios_Click;
             // 
             // menumantenedor
             // 
@@ -273,18 +276,21 @@
             menucasa.Size = new Size(164, 174);
             menucasa.Text = "Inicio";
             menucasa.TextImageRelation = TextImageRelation.ImageAboveText;
+            menucasa.Click += menucasa_Click;
             // 
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(txtNombreEncargado);
+            panel2.Controls.Add(label6);
             panel2.Controls.Add(btneliminar);
             panel2.Controls.Add(btneditar);
             panel2.Controls.Add(btnguardar);
-            panel2.Controls.Add(comboBox2);
-            panel2.Controls.Add(textBox4);
-            panel2.Controls.Add(textBox3);
-            panel2.Controls.Add(textBox2);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(comboEstado);
+            panel2.Controls.Add(txtTelefono);
+            panel2.Controls.Add(txtCorreo);
+            panel2.Controls.Add(txtRazonSocial);
+            panel2.Controls.Add(txtDocumento);
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(label4);
@@ -335,6 +341,7 @@
             btneditar.TextAlign = ContentAlignment.MiddleRight;
             btneditar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btneditar.UseVisualStyleBackColor = false;
+            btneditar.Click += btneditar_Click;
             // 
             // btnguardar
             // 
@@ -355,48 +362,49 @@
             btnguardar.TextAlign = ContentAlignment.MiddleRight;
             btnguardar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnguardar.UseVisualStyleBackColor = false;
+            btnguardar.Click += btnguardar_Click;
             // 
-            // comboBox2
+            // comboEstado
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(9, 379);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(401, 28);
-            comboBox2.TabIndex = 14;
+            comboEstado.FormattingEnabled = true;
+            comboEstado.Location = new Point(9, 449);
+            comboEstado.Name = "comboEstado";
+            comboEstado.Size = new Size(401, 28);
+            comboEstado.TabIndex = 14;
             // 
-            // textBox4
+            // txtTelefono
             // 
-            textBox4.Location = new Point(9, 315);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(401, 27);
-            textBox4.TabIndex = 11;
+            txtTelefono.Location = new Point(9, 313);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(401, 27);
+            txtTelefono.TabIndex = 11;
             // 
-            // textBox3
+            // txtCorreo
             // 
-            textBox3.Location = new Point(9, 243);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(401, 27);
-            textBox3.TabIndex = 10;
+            txtCorreo.Location = new Point(9, 241);
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.Size = new Size(401, 27);
+            txtCorreo.TabIndex = 10;
             // 
-            // textBox2
+            // txtRazonSocial
             // 
-            textBox2.Location = new Point(9, 173);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(401, 27);
-            textBox2.TabIndex = 9;
+            txtRazonSocial.Location = new Point(9, 171);
+            txtRazonSocial.Name = "txtRazonSocial";
+            txtRazonSocial.Size = new Size(401, 27);
+            txtRazonSocial.TabIndex = 9;
             // 
-            // textBox1
+            // txtDocumento
             // 
-            textBox1.Location = new Point(9, 101);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(401, 27);
-            textBox1.TabIndex = 8;
+            txtDocumento.Location = new Point(9, 99);
+            txtDocumento.Name = "txtDocumento";
+            txtDocumento.Size = new Size(401, 27);
+            txtDocumento.TabIndex = 8;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(13, 359);
+            label8.Location = new Point(13, 429);
             label8.Name = "label8";
             label8.Size = new Size(58, 17);
             label8.TabIndex = 7;
@@ -406,7 +414,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(11, 295);
+            label5.Location = new Point(11, 293);
             label5.Name = "label5";
             label5.Size = new Size(71, 17);
             label5.TabIndex = 4;
@@ -416,7 +424,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(11, 223);
+            label4.Location = new Point(11, 221);
             label4.Name = "label4";
             label4.Size = new Size(60, 17);
             label4.TabIndex = 3;
@@ -426,7 +434,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(13, 153);
+            label3.Location = new Point(13, 151);
             label3.Name = "label3";
             label3.Size = new Size(101, 17);
             label3.TabIndex = 2;
@@ -436,7 +444,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(11, 81);
+            label2.Location = new Point(11, 79);
             label2.Name = "label2";
             label2.Size = new Size(120, 17);
             label2.TabIndex = 1;
@@ -470,6 +478,23 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(1219, 532);
             dataGridView1.TabIndex = 7;
+            // 
+            // txtNombreEncargado
+            // 
+            txtNombreEncargado.Location = new Point(9, 383);
+            txtNombreEncargado.Name = "txtNombreEncargado";
+            txtNombreEncargado.Size = new Size(401, 27);
+            txtNombreEncargado.TabIndex = 19;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(11, 363);
+            label6.Name = "label6";
+            label6.Size = new Size(150, 17);
+            label6.TabIndex = 18;
+            label6.Text = "Nombre Encargado";
             // 
             // FrmProveedores
             // 
@@ -519,11 +544,11 @@
         private FontAwesome.Sharp.IconButton btneliminar;
         private FontAwesome.Sharp.IconButton btneditar;
         private FontAwesome.Sharp.IconButton btnguardar;
-        private ComboBox comboBox2;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private ComboBox comboEstado;
+        private TextBox txtTelefono;
+        private TextBox txtCorreo;
+        private TextBox txtRazonSocial;
+        private TextBox txtDocumento;
         private Label label8;
         private Label label5;
         private Label label4;
@@ -532,5 +557,7 @@
         private Label label1;
         private Label label10;
         private DataGridView dataGridView1;
+        private TextBox txtNombreEncargado;
+        private Label label6;
     }
 }

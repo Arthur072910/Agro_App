@@ -32,7 +32,6 @@ namespace Agro_App.Views
                 string username = txtusuario.Text.Trim();
                 string password = txtcontraseña.Text.Trim();
 
-                // Validar que los campos no estén vacíos
                 if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
                 {
                     MessageBox.Show("Por favor, ingrese usuario y contraseña.", "Campos vacíos",
@@ -41,7 +40,6 @@ namespace Agro_App.Views
                 }
 
                 ConexionDB conexion = new ConexionDB();
-                // Usar el método GetConnectionString() que agregamos a ConexionDB
                 LoginControllers controller = new LoginControllers(conexion.GetConnectionString());
 
                 Empleados empleado = controller.IniciarSesion(username, password);
@@ -51,20 +49,28 @@ namespace Agro_App.Views
                     MessageBox.Show($"Bienvenido, {empleado.Nombre} {empleado.Apellido}!",
                                   "Login exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Abrir el formulario Inicio y pasar el empleado
-                    Form Inicio = new Inicio(empleado);
-                    Inicio.Show();
+                    Form formAabrir;
+
+                    // Asumiendo que IdCargo 1 es administrador
+                    if (empleado.IdCargo == 1)
+                    {
+                        formAabrir = new Inicio(empleado);
+                    }
+                    else
+                    {
+                        formAabrir = new InicioEmpleados(empleado);
+                    }
+
+                    formAabrir.Show();
                     this.Hide();
 
-                    // Opcional: Cerrar el form de login cuando se cierre el form Inicio
-                    Inicio.FormClosed += (s, args) => this.Close();
+                    formAabrir.FormClosed += (s, args) => this.Close();
                 }
                 else
                 {
                     MessageBox.Show("Usuario o contraseña incorrectos.", "Error de autenticación",
                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    // Limpiar campos
                     txtcontraseña.Text = "";
                     txtusuario.Focus();
                 }
@@ -77,3 +83,4 @@ namespace Agro_App.Views
         }
     }
 }
+    
