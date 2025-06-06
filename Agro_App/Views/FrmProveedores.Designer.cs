@@ -49,6 +49,8 @@
             menuacercade = new FontAwesome.Sharp.IconMenuItem();
             menucasa = new FontAwesome.Sharp.IconMenuItem();
             panel2 = new Panel();
+            txtNombreEncargado = new TextBox();
+            label6 = new Label();
             btneliminar = new FontAwesome.Sharp.IconButton();
             btneditar = new FontAwesome.Sharp.IconButton();
             btnguardar = new FontAwesome.Sharp.IconButton();
@@ -65,8 +67,6 @@
             label1 = new Label();
             label10 = new Label();
             dataGridView1 = new DataGridView();
-            txtNombreEncargado = new TextBox();
-            label6 = new Label();
             menu.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -302,6 +302,23 @@
             panel2.Size = new Size(443, 699);
             panel2.TabIndex = 5;
             // 
+            // txtNombreEncargado
+            // 
+            txtNombreEncargado.Location = new Point(9, 383);
+            txtNombreEncargado.Name = "txtNombreEncargado";
+            txtNombreEncargado.Size = new Size(401, 27);
+            txtNombreEncargado.TabIndex = 19;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(11, 363);
+            label6.Name = "label6";
+            label6.Size = new Size(150, 17);
+            label6.TabIndex = 18;
+            label6.Text = "Nombre Encargado";
+            // 
             // btneliminar
             // 
             btneliminar.BackColor = Color.Red;
@@ -478,23 +495,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(1219, 532);
             dataGridView1.TabIndex = 7;
-            // 
-            // txtNombreEncargado
-            // 
-            txtNombreEncargado.Location = new Point(9, 383);
-            txtNombreEncargado.Name = "txtNombreEncargado";
-            txtNombreEncargado.Size = new Size(401, 27);
-            txtNombreEncargado.TabIndex = 19;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(11, 363);
-            label6.Name = "label6";
-            label6.Size = new Size(150, 17);
-            label6.TabIndex = 18;
-            label6.Text = "Nombre Encargado";
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // FrmProveedores
             // 
@@ -509,6 +510,7 @@
             Controls.Add(menutitulo);
             Name = "FrmProveedores";
             Text = "FrmProveedores";
+            Load += FrmProveedores_Load;
             menu.ResumeLayout(false);
             menu.PerformLayout();
             panel2.ResumeLayout(false);
