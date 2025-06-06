@@ -124,10 +124,10 @@ namespace Agro_App.Views
 
         private void FrmDetalleCompra_Load(object sender, EventArgs e)
         {
-            lblFechaRegistro.Text = DateTime.Now.ToString("dd/MM/yyyy");
-        }
+            lblFechaRegistro.Text = DateTime.Now.ToString("dd/MM/yyyy"); 
+        } 
 
-        private int idCompra;
+        private int idCompra; 
 
         public FrmDetalleCompra(int idCompra)
         {
