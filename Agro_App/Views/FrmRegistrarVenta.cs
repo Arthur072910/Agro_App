@@ -29,7 +29,7 @@ namespace Agro_App.Views
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                adapt = new SqlDataAdapter("SELECT * FROM Empleados", con);
+                adapt = new SqlDataAdapter("SELECT * FROM Ventas", con);
                 DataTable dt = new DataTable();
                 adapt.Fill(dt);
                 dataGridView1.DataSource = dt;
@@ -118,5 +118,96 @@ namespace Agro_App.Views
             inicioForm.Show();
             this.Close();
         }
+
+        private void lblfecha_Click(object sender, EventArgs e)
+        {
+            lblfecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            // Validar campos obligatorios
+            if (string.IsNullOrWhiteSpace(txtidcliente.Text) ||
+                string.IsNullOrWhiteSpace(txtidempleado.Text) ||
+                string.IsNullOrWhiteSpace(lblfecha.Text) ||  // La fecha está en el label
+                string.IsNullOrWhiteSpace(txttotal.Text) ||
+                string.IsNullOrWhiteSpace(txttipodocumento.Text) ||
+                string.IsNullOrWhiteSpace(txtnumerodocumento.Text))
+            {
+                MessageBox.Show("Por favor completa todos los campos.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validar campos numéricos
+            if (!int.TryParse(txtidcliente.Text, out int idCliente))
+            {
+                MessageBox.Show("Id Cliente debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!int.TryParse(txtidempleado.Text, out int idEmpleado))
+            {
+                MessageBox.Show("Id Empleado debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!DateTime.TryParse(lblfecha.Text, out DateTime fecha))
+            {
+                MessageBox.Show("Fecha inválida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!decimal.TryParse(txttotal.Text, out decimal total))
+            {
+                MessageBox.Show("Total debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string tipoDocumento = txttipodocumento.Text.Trim();
+            string numeroDocumento = txtnumerodocumento.Text.Trim();
+
+            // Insertar en la base de datos
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = @"INSERT INTO Ventas 
+                         (IdCliente, IdEmpleado, Fecha, Total, TipoDocumento, NumeroDocumento) 
+                         VALUES (@IdCliente, @IdEmpleado, @Fecha, @Total, @TipoDocumento, @NumeroDocumento)";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdCliente", idCliente);
+                    cmd.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
+                    cmd.Parameters.AddWithValue("@Fecha", fecha); // Asegúrate de que la columna en SQL es datetime
+                    cmd.Parameters.AddWithValue("@Total", total); // Asegúrate de que la columna en SQL es decimal o money
+                    cmd.Parameters.AddWithValue("@TipoDocumento", tipoDocumento);
+                    cmd.Parameters.AddWithValue("@NumeroDocumento", numeroDocumento);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+            MessageBox.Show("Venta registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            obtenerLista(); // Recargar lista
+
+            // Limpiar campos
+            txtidcliente.Clear();
+            txtidempleado.Clear();
+            txttotal.Clear();
+            txttipodocumento.Clear();
+            txtnumerodocumento.Clear();
+        }
+
+
+        private void FrmRegistrarVenta_Load(object sender, EventArgs e)
+        {
+            lblfecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+        }
     }
+
+
+
+
 }

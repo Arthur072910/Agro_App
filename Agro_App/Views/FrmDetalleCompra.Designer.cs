@@ -51,7 +51,6 @@
             panel1 = new Panel();
             panel2 = new Panel();
             dataGridView1 = new DataGridView();
-            iconButton2 = new FontAwesome.Sharp.IconButton();
             groupBox2 = new GroupBox();
             txpreciounitario = new TextBox();
             btnagregar = new FontAwesome.Sharp.IconButton();
@@ -296,7 +295,6 @@
             // 
             panel2.BackColor = SystemColors.ButtonHighlight;
             panel2.Controls.Add(dataGridView1);
-            panel2.Controls.Add(iconButton2);
             panel2.Controls.Add(groupBox2);
             panel2.Controls.Add(label1);
             panel2.Location = new Point(281, 42);
@@ -312,21 +310,6 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(586, 150);
             dataGridView1.TabIndex = 34;
-            // 
-            // iconButton2
-            // 
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.Wpforms;
-            iconButton2.IconColor = Color.Green;
-            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.IconSize = 20;
-            iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton2.Location = new Point(650, 463);
-            iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(108, 28);
-            iconButton2.TabIndex = 33;
-            iconButton2.Text = "Descargar PDF";
-            iconButton2.TextAlign = ContentAlignment.MiddleRight;
-            iconButton2.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -495,7 +478,6 @@
         private Label label5;
         private Label Producto;
         private TextBox txtnumerodocumento;
-        private FontAwesome.Sharp.IconButton iconButton2;
         private ToolStripMenuItem submenureportecompras;
         private ToolStripMenuItem submenureporteventas;
         private DataGridView dataGridView1;
